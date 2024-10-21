@@ -462,7 +462,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
             audioSource.connect(analyser);
             analyser.connect(audioContext.destination);
             const dataArray = new Uint8Array(analyser.frequencyBinCount);
-            function updateMovingAverage() {
+            const updateMovingAverage = () => {
                 analyser.getByteTimeDomainData(dataArray);
                 let sum = 0;
                 for (let i = 0; i < dataArray.length; i++) {
