@@ -15,7 +15,6 @@ const Audio3dPage = () => {
         styles='bg-black h-4/5 w-[100vw]'
         position={position}
         size={[1.7, 10]}
-        color={"white"}
       />
     </div>
   );

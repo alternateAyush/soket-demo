@@ -1,9 +1,9 @@
 "use client";
 
-import React, { MutableRefObject, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { FaMicrophone, FaStop } from "react-icons/fa";
-import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import WavEncoder from "wav-encoder";
 import { Vector2, Vector3, Mesh, ShaderMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
@@ -14,10 +14,9 @@ type AudioSphereProps = {
     size?:
         | [radius?: number | undefined, detail?: number | undefined]
         | undefined;
-    color?: string;
 };
 
-function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
+function AudioSphere({ styles, position, size}: AudioSphereProps) {
     const vertexShader = `
     uniform float u_time;
     vec3 mod289(vec3 x)
@@ -185,7 +184,7 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
             },
         };
         const uniformRef = useRef(uniforms);
-        useFrame((state, delta) => {
+        useFrame((state) => {
             if (animateRef.current === true) {
                 if (audioStateRef.current === "listen") {
                     meshRef.current!.position.z = 0;
@@ -217,8 +216,8 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
                     uniformRef.current.u_green.value = 0.3;
                 }
             } else {
-                let x = state.pointer.x;
-                let y = state.pointer.y;
+                const x = state.pointer.x;
+                const y = state.pointer.y;
                 meshRef.current!.rotation.x = x;
                 meshRef.current!.rotation.y = y;
                 meshRef.current!.rotation.z = x * y;
@@ -469,7 +468,7 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
                 for (let i = 0; i < dataArray.length; i++) {
                     sum += Math.abs(dataArray[i] - 128); // Convert unsigned byte to centered data
                 }
-                let average = sum / dataArray.length;
+                const average = sum / dataArray.length;
                 movingAverageRef.current =
                     (alpha * average + (1 - alpha) * movingAverageRef.current) /
                     50;
