@@ -189,7 +189,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
                 if (audioStateRef.current === "listen") {
                     meshRef.current!.position.z = 0;
                     uniformRef.current.u_frequency.value =
-                        movingAverageRef.current * 1500;
+                        movingAverageRef.current * 2050;
                     meshRef.current!.rotation.y -= 0.01;
                     uniformRef.current.u_green.value = 0.6;
                     uniformRef.current.u_blue.value = 0.4;
