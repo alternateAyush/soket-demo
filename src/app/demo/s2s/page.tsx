@@ -5,7 +5,9 @@ import AudioSphere from "@/components/AudioSphere";
 import { Vector3 } from "three";
 
 const Audio3dPage = () => {
+    const keey = process.env.NEXT_PUBLIC_TOKEN;
     const position = new Vector3(0,0,0);
+    console.log(keey);
   return (
     <div className='h-[100vh] bg-black flex flex-col justify-start items-center py-2 overflow-hidden'>
       <h1 className='text-white font-bold tracking-[5px] text-lg'>S2S Demo</h1>

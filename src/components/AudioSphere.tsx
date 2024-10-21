@@ -5,15 +5,17 @@ import axios from "axios";
 import { FaMicrophone, FaStop } from "react-icons/fa";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import WavEncoder from "wav-encoder";
-import { Vector2, Vector3, Mesh,ShaderMaterial } from "three";
+import { Vector2, Vector3, Mesh, ShaderMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 type AudioSphereProps = {
     styles?: string;
     position?: Vector3 | undefined;
-    size?: [radius?:number|undefined, detail?:number|undefined] | undefined;
+    size?:
+        | [radius?: number | undefined, detail?: number | undefined]
+        | undefined;
     color?: string;
-}
+};
 
 function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
     const vertexShader = `
@@ -248,9 +250,9 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
     const [micDisable, setMicDisable] = useState(false);
     const animateRef = useRef(false);
     const audioStateRef = useRef("none");
-    const audioProcessorRef = useRef<AudioWorkletNode|null>(null);
+    const audioProcessorRef = useRef<AudioWorkletNode | null>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-    const audioSourceRef = useRef<MediaStreamAudioSourceNode|null>(null);
+    const audioSourceRef = useRef<MediaStreamAudioSourceNode | null>(null);
     const audioStreamRef = useRef<MediaStream | null>(null);
     const recordedChunksRef = useRef<Blob[]>([]);
     const movingAverageRef = useRef(0.0);
@@ -364,12 +366,14 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
             mediaRecorderRef.current.stop();
             audioProcessorRef.current.disconnect();
             audioSourceRef.current.disconnect();
-            audioStreamRef.current!.getTracks().forEach((track) => track.stop());
+            audioStreamRef
+                .current!.getTracks()
+                .forEach((track) => track.stop());
 
             console.log("Recording stopped");
         }
     }
-    async function fetchAudioResponse(audioBlob:Blob) {
+    async function fetchAudioResponse(audioBlob: Blob) {
         try {
             const arrayBuffer = await audioBlob.arrayBuffer();
             const base64Audio = arrayBufferToBase64(arrayBuffer);
@@ -436,17 +440,17 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
             return null;
         }
     }
-    async function sendAudioData(audioBlob:Blob) {
+    async function sendAudioData(audioBlob: Blob) {
         try {
             const responseAudioBlob = await fetchAudioResponse(audioBlob);
             console.log("Audio is playing");
-            await playAudioWithMovingAverage(responseAudioBlob);
+            await playAudioWithMovingAverage(responseAudioBlob!);
         } catch (err) {
             console.error("Error sending audio data:", err);
         } finally {
         }
     }
-    async function playAudioWithMovingAverage(audioBlob:Blob) {
+    async function playAudioWithMovingAverage(audioBlob: Blob) {
         try {
             const alpha = 0.1;
             const audioContext = new AudioContext();
@@ -490,7 +494,7 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
         }
     }
 
-    function arrayBufferToBase64(buffer:ArrayBuffer) {
+    function arrayBufferToBase64(buffer: ArrayBuffer) {
         const bytes = new Uint8Array(buffer);
         let binary = "";
         for (let i = 0; i < bytes.length; i++) {
@@ -498,7 +502,7 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
         }
         return btoa(binary); // Base64 encode the binary string
     }
-    function base64ToBlob(base64:string, mimeType:string) {
+    function base64ToBlob(base64: string, mimeType: string) {
         const byteCharacters = atob(base64); // Decode the base64 string
         const byteNumbers = new Array(byteCharacters.length);
 
@@ -522,7 +526,7 @@ function AudioSphere({ styles, position, size, color }: AudioSphereProps) {
     return (
         <div className={`${styles} flex flex-col justify-center items-center`}>
             <Canvas>
-                <Scene/>
+                <Scene />
                 <EffectComposer>
                     <Bloom
                         intensity={bloom[0]} // Control bloom intensity
