@@ -340,38 +340,28 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
         } catch (error) {
             console.log("audio setup failed:", error);
         }
-    }
-
-    async function startRecording() {
-        try {
-            const audioContext = await setUpAudioRecording();
-            audioProcessorRef.current!.port.onmessage = (event) => {
-                movingAverageRef.current = event.data;
-            };
-            audioSourceRef.current!.connect(audioProcessorRef.current!);
-            audioProcessorRef.current!.connect(audioContext!.destination);
-            mediaRecorderRef.current!.start();
-            console.log("Recording started.");
-        } catch (err) {
-            console.error("Error accessing microphone:", err);
+    }    
+    //----------------------------------------------------------------
+    function arrayBufferToBase64(buffer: ArrayBuffer) {
+        const bytes = new Uint8Array(buffer);
+        let binary = "";
+        for (let i = 0; i < bytes.length; i++) {
+            binary += String.fromCharCode(bytes[i]);
         }
+        return btoa(binary); // Base64 encode the binary string
     }
-    function stopRecording() {
-        if (
-            mediaRecorderRef.current &&
-            audioSourceRef.current &&
-            audioProcessorRef.current
-        ) {
-            mediaRecorderRef.current.stop();
-            audioProcessorRef.current.disconnect();
-            audioSourceRef.current.disconnect();
-            audioStreamRef
-                .current!.getTracks()
-                .forEach((track) => track.stop());
+    function base64ToBlob(base64: string, mimeType: string) {
+        const byteCharacters = atob(base64); // Decode the base64 string
+        const byteNumbers = new Array(byteCharacters.length);
 
-            console.log("Recording stopped");
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
         }
+
+        const byteArray = new Uint8Array(byteNumbers);
+        return new Blob([byteArray], { type: mimeType });
     }
+    // -----------------------------------------------------------------
     async function fetchAudioResponse(audioBlob: Blob) {
         try {
             const arrayBuffer = await audioBlob.arrayBuffer();
@@ -438,17 +428,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
             console.log("error in fetch response: ", error);
             return null;
         }
-    }
-    async function sendAudioData(audioBlob: Blob) {
-        try {
-            const responseAudioBlob = await fetchAudioResponse(audioBlob);
-            console.log("Audio is playing");
-            await playAudioWithMovingAverage(responseAudioBlob!);
-        } catch (err) {
-            console.error("Error sending audio data:", err);
-        } finally {
-        }
-    }
+    }    
     async function playAudioWithMovingAverage(audioBlob: Blob) {
         try {
             const alpha = 0.1;
@@ -492,25 +472,46 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
             console.error("Error playing audio:", error);
         }
     }
-
-    function arrayBufferToBase64(buffer: ArrayBuffer) {
-        const bytes = new Uint8Array(buffer);
-        let binary = "";
-        for (let i = 0; i < bytes.length; i++) {
-            binary += String.fromCharCode(bytes[i]);
+    async function sendAudioData(audioBlob: Blob) {
+        try {
+            const responseAudioBlob = await fetchAudioResponse(audioBlob);
+            console.log("Audio is playing");
+            await playAudioWithMovingAverage(responseAudioBlob!);
+        } catch (err) {
+            console.error("Error sending audio data:", err);
+        } finally {
         }
-        return btoa(binary); // Base64 encode the binary string
+    }    
+    // -------------------------------------------------------------------
+    async function startRecording() {
+        try {
+            const audioContext = await setUpAudioRecording();
+            audioProcessorRef.current!.port.onmessage = (event) => {
+                movingAverageRef.current = event.data;
+            };
+            audioSourceRef.current!.connect(audioProcessorRef.current!);
+            audioProcessorRef.current!.connect(audioContext!.destination);
+            mediaRecorderRef.current!.start();
+            console.log("Recording started.");
+        } catch (err) {
+            console.error("Error accessing microphone:", err);
+        }
     }
-    function base64ToBlob(base64: string, mimeType: string) {
-        const byteCharacters = atob(base64); // Decode the base64 string
-        const byteNumbers = new Array(byteCharacters.length);
+    function stopRecording() {
+        if (
+            mediaRecorderRef.current &&
+            audioSourceRef.current &&
+            audioProcessorRef.current
+        ) {
+            mediaRecorderRef.current.stop();
+            audioProcessorRef.current.disconnect();
+            audioSourceRef.current.disconnect();
+            audioStreamRef
+                .current!.getTracks()
+                .forEach((track) => track.stop());
 
-        for (let i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
+            console.log("Recording stopped");
         }
-
-        const byteArray = new Uint8Array(byteNumbers);
-        return new Blob([byteArray], { type: mimeType });
     }
     // ------------------------------------------------------------------------------------------
     function handleClick() {
