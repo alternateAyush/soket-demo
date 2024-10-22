@@ -301,7 +301,7 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
 
                 // Decode the audio data from the recorded Blob
                 await audioContextOne.close();
-                audioContext
+                await audioContext
                     .decodeAudioData(arrayBuffer)
                     .then((audioBuffer) => {
                         const wavData = {
