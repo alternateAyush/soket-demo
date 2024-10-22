@@ -153,8 +153,8 @@ const configArray = [
         ],
     },
 ];
-var jsonData = defaultJsonData;
-var context = defaultContext;
+let jsonData = defaultJsonData;
+let context = defaultContext;
 
 export const getDefaultJsonData = function () {
     return defaultJsonData;

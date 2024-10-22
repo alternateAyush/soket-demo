@@ -3,8 +3,6 @@
 import React from "react";
 import AudioSphere from "@/components/AudioSphere";
 import { Vector3 } from "three";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 
 const Audio3dPage = () => {
     const position = new Vector3(0, 0, 0);

@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { FaMicrophone, FaStop } from "react-icons/fa";
 import { Canvas, useFrame } from "@react-three/fiber";
 import WavEncoder from "wav-encoder";
 import { Vector2, Vector3, Mesh, ShaderMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import { Button } from "@/components/ui/button";
 import { getContext, getJsonData } from "@/utils/inputUtils";
 
 type AudioSphereProps = {
