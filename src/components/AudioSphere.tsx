@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { FaMicrophone, FaStop } from "react-icons/fa";
 import { Canvas, useFrame } from "@react-three/fiber";
 import WavEncoder from "wav-encoder";
 import { Vector2, Vector3, Mesh, ShaderMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { Button } from "@/components/ui/button";
+import { getContext, getJsonData } from "@/utils/inputUtils";
 
 type AudioSphereProps = {
     styles?: string;
@@ -16,7 +18,7 @@ type AudioSphereProps = {
         | undefined;
 };
 
-function AudioSphere({ styles, position, size}: AudioSphereProps) {
+function AudioSphere({ styles, position, size }: AudioSphereProps) {
     const vertexShader = `
     uniform float u_time;
     vec3 mod289(vec3 x)
@@ -340,7 +342,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
         } catch (error) {
             console.log("audio setup failed:", error);
         }
-    }    
+    }
     //----------------------------------------------------------------
     function arrayBufferToBase64(buffer: ArrayBuffer) {
         const bytes = new Uint8Array(buffer);
@@ -366,36 +368,29 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
         try {
             const arrayBuffer = await audioBlob.arrayBuffer();
             const base64Audio = arrayBufferToBase64(arrayBuffer);
-            const history = [
-                {
-                    role: "user",
-                    content: `
-                ग्राहक_नाम: "राम कुमार"
-                उम्र: "35"
-                मोबाइल_नंबर: "9876543210"
-                ईमेल: "ramesh.kumar@example.com"
-                लोन_राशि: "₹5,00,000"
-                लोन_प्रकार: "व्यक्तिगत ऋण"
-                लोन_स्वीकृति_तिथि: "15 जनवरी 2024"
-                ब्याज_दर: "11.5%"
-                कुल_ईएमआई_संख्या: "60"
-                मासिक_ईएमआई: "₹11,022"
-                अगली_ईएमआई_तिथि: "10 अक्टूबर 2024"
-                लोन_पर_बकाया_राशि: "₹4,55,000"
-                लोन_अवधि: "5 वर्ष"
-                लोन_देनदार_बैंक: "नेशनल बैंक ऑफ इंडिया"
-                ग्राहक_आधार_संख्या: "XXXX-XXXX-1234"
-                पता: "125, नेहरू नगर, दिल्ली - 110045"
-              `,
-                },
-            ];
+            const jsData = getJsonData();
+            const history = getContext();
+            console.log(jsData);
+            console.log(history);
+
+            // const history = [
+            //     {
+            //         role: "user",
+            //         content: "विषय: मर्न स्टैक वेब विकास",
+            //     },
+            // ];
+            // const jsonData = {
+            //     audio_base64: base64Audio,
+            //     language: "hi",
+            //     action: "s2s_llm",
+            //     voice: "male",
+            //     context_history: history,
+            //     input: "आप हिन्दी के अनुभवी प्रोफेसर हैं। आपको हिंदी निबंध लेखन के लिए प्रशिक्षित किया गया है। कृपया दिए गए विषय पर पचास से सौ शब्द आसान बताएं।",
+            // };
             const jsonData = {
+                ...jsData,
                 audio_base64: base64Audio,
-                language: "hi",
-                action: "s2s_llm",
-                voice: "male",
                 context_history: history,
-                input: "आप एक ऋण एजेंट हैं जिसे उपयोगकर्ताओं को उनके द्वारा पूछे गए प्रश्नों के बारे में जानकारी प्राप्त करने में मदद करने के लिए प्रशिक्षित किया गया है। आपको विनम्र और यथासंभव मददगार होना चाहिए। आपको उपयोगकर्ताओं को नियत तारीख से पहले मासिक किश्तों का भुगतान करने के लिए भी प्रोत्साहित करना चाहिए। कृपया केवल एक वाक्य में उत्तर दें। केवल हिंदी में उत्तर दें।",
             };
             const response = await axios.post(
                 "https://api.soket.ai/v1/s2s",
@@ -428,7 +423,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
             console.log("error in fetch response: ", error);
             return null;
         }
-    }    
+    }
     async function playAudioWithMovingAverage(audioBlob: Blob) {
         try {
             const alpha = 0.1;
@@ -455,7 +450,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
                 if (audioContext.state !== "closed") {
                     requestAnimationFrame(updateMovingAverage);
                 }
-            }
+            };
             audioSource.onended = async () => {
                 await audioContext.close();
                 audioStateRef.current = "none";
@@ -481,7 +476,7 @@ function AudioSphere({ styles, position, size}: AudioSphereProps) {
             console.error("Error sending audio data:", err);
         } finally {
         }
-    }    
+    }
     // -------------------------------------------------------------------
     async function startRecording() {
         try {
