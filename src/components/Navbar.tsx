@@ -20,7 +20,7 @@ const navList = [
 
 const Navbar = () => {
     return (
-        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-[75px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.14)]'>
+        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-[75px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.14)] backdrop-blur-[8px]'>
             <div className='p-0 w-[1150px] flex flex-row h-full justify-between items-center mx-auto'>
                 <div>
                     <Image
