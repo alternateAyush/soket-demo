@@ -6,7 +6,7 @@ const spaceMono = Space_Mono({
     weight: ["400"],
 });
 
-const sectionName = "Highlights";
+const sectionName = "highlights";
 const sectionTitle =
     "Seamless Global Communication with Real-Time Multilingual Speech Solutions";
 const highlightList = [
@@ -29,12 +29,13 @@ const highlightList = [
 
 const HighLights = () => {
     return (
-        <section className='pt-[100px] pb-[120px] md:pb-0 mt-[-20px] relative rounded-t-3xl text-black z-0 bg-white w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
-            <div className='flex flex-col justify-start items-start space-y-[30px] px-2 md:px-0 w-full md:w-[1150px] mx-auto'>
+        <section className='pt-[70px] md:pt-[100px] pb-[120px] md:pb-0 mt-[-20px] relative rounded-t-3xl text-black z-0 bg-white w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
+            <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
-                    className={`${spaceMono.className} uppercase text-black text-[12px] tracking-[2px] font-bold`}
+                    className={`${spaceMono.className} uppercase text-black text-[10px] tracking-[2px]`}
                 >
-                    {'//'}{sectionName}
+                    {"// "}
+                    {sectionName}
                 </span>
                 <h2 className='w-full md:w-[75%] text-[3rem] cabinet-grotesk-medium break-words'>
                     {sectionTitle}
@@ -50,13 +51,17 @@ const HighLights = () => {
                                     (index + 1) % 3 == 0
                                         ? `border-transparent`
                                         : `border-[rgba(0,0,0,0.3)]`
-                                } border-b md:border-r flex flex-col justify-start items-start space-y-4 p-[20px] md:pb-[120px]`}
+                                } border-b md:border-b-0 md:border-r flex flex-col justify-start items-start space-y-4 p-[20px] md:pb-[120px]`}
                             >
                                 <span className='w-full text-right text-[20px] text-[rgba(0,0,0,0.4)]'>
                                     0{index + 1}
                                 </span>
                                 <div className='w-full h-[350px] mx-auto relative overflow-hidden'>
-                                    <img className="object-fit object-center" src={highlight.imgPath} alt={highlight.title}/>
+                                    <img
+                                        className='object-fit object-center'
+                                        src={highlight.imgPath}
+                                        alt={highlight.title}
+                                    />
                                 </div>
                                 <div className='w-full flex flex-col justify-start items-start space-y-3'>
                                     <h3 className='w-full text-black text-[1.8rem]'>

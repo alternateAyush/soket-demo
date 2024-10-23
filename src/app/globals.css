@@ -5,14 +5,14 @@
 * {
     margin: 0px;
     padding: 0px;
-    scrollbar-width: 100px;
+    word-break: normal;    
 }
 
 body {
     width: 100vw;
     height: auto;
     min-height: 100vh;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 .bg-custom-gradient {
@@ -22,7 +22,10 @@ body {
         rgba(0, 0, 0, 1) 50%
     );
 }
-.cabinet-grotesk{
+.bg-custom-gradient-2 {
+    background-image: linear-gradient(to top, rgba(144, 177, 242, 0.5), black);
+}
+.cabinet-grotesk {
     font-family: "CabinetGrotesk-regular";
 }
 .cabinet-grotesk-medium {
@@ -47,16 +50,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 @layer base {
@@ -213,7 +216,7 @@ body {
             format("woff"),
         url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.ttf")
             format("truetype");
-    font-weight: 500;
+    font-weight: 600;
     font-display: swap;
     font-style: normal;
 }

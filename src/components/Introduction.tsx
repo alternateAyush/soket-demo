@@ -24,8 +24,8 @@ const titleAbout =
 const totalWaitlist = 234;
 const Introduction = () => {
     return (
-        <section className='m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
-            <div className='h-auto w-full px-2 md:px-0 md:w-[1150px] mt-[150px] mx-auto flex justify-start items-center'>
+        <section className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
+            <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
                 <div className='flex flex-col justify-start items-start space-y-[40px] w-full md:w-[58%] h-auto bg-transparent overflow-hidden'>
                     <ul
                         className={`${spaceMono.className} flex flex-row flex-wrap space-y-2 justify-start items-center space-x-4 w-full`}
@@ -34,7 +34,7 @@ const Introduction = () => {
                             return (
                                 <li
                                     key={index}
-                                    className='p-1 px-[20px] text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)] cursor-default'
+                                    className='p-1 px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)] cursor-default'
                                 >
                                     {tag.title}
                                 </li>

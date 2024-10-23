@@ -13,7 +13,7 @@ const spaceMono = Space_Mono({
 });
 
 const navList = [
-    { title: "Features", url: "" },
+    { title: "Features", url: "#features" },
     { title: "Demo", url: "/demo/s2s" },
     { title: "Industries", url: "" },
     { title: "Workflows", url: "" },
@@ -23,8 +23,8 @@ const navList = [
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
     return (
-        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-auto md:h-[75px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.4)] backdrop-blur-[8px]'>
-            <div className='px-3 md:p-0 my-auto md:my-0 w-full md:w-[1150px] flex flex-row h-[75px] md:h-full justify-between items-center mx-auto'>
+        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-auto md:h-[80px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.4)] backdrop-blur-[8px]'>
+            <div className='px-3 md:p-0 my-auto md:my-0 w-full md:w-[1150px] flex flex-row h-[80px] md:h-full justify-between items-center mx-auto'>
                 <div>
                     <Image
                         src={iconImage}
@@ -51,9 +51,21 @@ const Navbar = () => {
                             );
                         })}
                     </ul>
-                    <button className='flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'>
+                    <button className='hidden md:flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'>
                         <span>{`Join the Waitlist`}</span>
                         <IoIosArrowForward />
+                    </button>
+                    <button
+                        onClick={() => {
+                            setMenu(!menu);
+                        }}
+                        className='inline md:hidden p-1 text-[rgba(255,255,255,0.68)] rounded-full active:bg-[rgba(255,255,255,0.3)]'
+                    >
+                        {menu ? (
+                            <FaCaretUp size={20} />
+                        ) : (
+                            <FaCaretDown size={20} />
+                        )}
                     </button>
                 </div>
             </div>
@@ -77,17 +89,13 @@ const Navbar = () => {
                             </li>
                         );
                     })}
+                    <div className='w-full flex justify-center items-center'>
+                        <button className='flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'>
+                            <span>{`Join the Waitlist`}</span>
+                            <IoIosArrowForward />
+                        </button>
+                    </div>
                 </ul>
-                <div className='w-full flex justify-center items-center'>
-                    <button
-                        onClick={() => {
-                            setMenu(!menu);
-                        }}
-                        className="p-1 text-[rgba(255,255,255,0.68)] rounded-full active:bg-[rgba(255,255,255,0.3)]"
-                    >
-                        {menu ? <FaCaretUp size={20}/> : <FaCaretDown size={20}/>}
-                    </button>
-                </div>
             </div>
         </div>
     );
