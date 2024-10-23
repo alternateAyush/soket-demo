@@ -34,7 +34,7 @@ const HighLights = () => {
                 <span
                     className={`${spaceMono.className} uppercase text-black text-[12px] tracking-[2px] font-bold`}
                 >
-                    // {sectionName}
+                    {'//'}{sectionName}
                 </span>
                 <h2 className='w-full md:w-[75%] text-[3rem] cabinet-grotesk-medium break-words'>
                     {sectionTitle}
