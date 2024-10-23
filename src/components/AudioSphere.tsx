@@ -518,17 +518,20 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
         }
     }
     return (
-        <div className={`${styles} flex flex-col justify-center items-center`}>
-            <Canvas>
-                <Scene />
-                <EffectComposer>
-                    <Bloom
-                        intensity={bloom[0]} // Control bloom intensity
-                        luminanceThreshold={bloom[1]} // Adjust threshold to control what gets bloomed
-                        luminanceSmoothing={bloom[2]} // Smooth out luminance transition
-                    />
-                </EffectComposer>
-            </Canvas>
+        <div className={`${styles} flex flex-col justify-center items-center `}>
+            <div className='p-0 m-0 overflow-hidden flex flex-col w-full h-[90%] justify-center items-center'>
+                <Canvas>
+                    <Scene />
+                    <EffectComposer>
+                        <Bloom
+                            intensity={bloom[0]} // Control bloom intensity
+                            luminanceThreshold={bloom[1]} // Adjust threshold to control what gets bloomed
+                            luminanceSmoothing={bloom[2]} // Smooth out luminance transition
+                        />
+                    </EffectComposer>
+                </Canvas>
+            </div>
+
             <button
                 type='button'
                 onClick={handleClick}
