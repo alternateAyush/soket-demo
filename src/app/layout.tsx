@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
     title: "soketlabs",
     description: "soketlabs",
-    icons:['/images/soket_icon.png']
+    icons: ["/images/soket_icon.png"],
 };
 
 export default function RootLayout({

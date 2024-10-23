@@ -1,9 +1,11 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Space_Mono } from "next/font/google";
 import iconImage from "../../public/images/icon_01.png";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -19,9 +21,10 @@ const navList = [
 ];
 
 const Navbar = () => {
+    const [menu, setMenu] = useState(false);
     return (
-        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-[75px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.14)] backdrop-blur-[8px]'>
-            <div className='p-0 w-[1150px] flex flex-row h-full justify-between items-center mx-auto'>
+        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-auto md:h-[75px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.4)] backdrop-blur-[8px]'>
+            <div className='px-3 md:p-0 my-auto md:my-0 w-full md:w-[1150px] flex flex-row h-[75px] md:h-full justify-between items-center mx-auto'>
                 <div>
                     <Image
                         src={iconImage}
@@ -34,7 +37,7 @@ const Navbar = () => {
                     className={`${spaceMono.className} flex flex-row justify-between items-center leading-[20px] text-[13px] space-x-4`}
                 >
                     <ul
-                        className={`flex flex-row justify-between items-center space-x-5 text-[rgba(255,255,255,0.68)]`}
+                        className={`hidden md:flex md:flex-row md:justify-between md:items-center md:space-x-5 text-[rgba(255,255,255,0.68)]`}
                     >
                         {navList.map((navItem, index) => {
                             return (
@@ -51,6 +54,38 @@ const Navbar = () => {
                     <button className='flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'>
                         <span>{`Join the Waitlist`}</span>
                         <IoIosArrowForward />
+                    </button>
+                </div>
+            </div>
+            <div className='block md:hidden w-full h-auto'>
+                {" "}
+                <ul
+                    className={`${
+                        menu
+                            ? `flex-col justify-start items-start p-3 space-y-4 text-[16px]`
+                            : `hidden`
+                    } md:hidden`}
+                >
+                    {navList.map((navItem, index) => {
+                        return (
+                            <li key={index}>
+                                <Link href={navItem.url}>
+                                    <span className='hover:underline-offset-4 hover:underline hover:text-[rgba(255,255,255,0.8)]'>
+                                        {navItem.title}
+                                    </span>
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+                <div className='w-full flex justify-center items-center'>
+                    <button
+                        onClick={() => {
+                            setMenu(!menu);
+                        }}
+                        className="p-1 text-[rgba(255,255,255,0.68)] rounded-full active:bg-[rgba(255,255,255,0.3)]"
+                    >
+                        {menu ? <FaCaretUp size={20}/> : <FaCaretDown size={20}/>}
                     </button>
                 </div>
             </div>

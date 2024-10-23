@@ -5,14 +5,14 @@
 * {
     margin: 0px;
     padding: 0px;
+    scrollbar-width: 100px;
 }
 
 body {
     width: 100vw;
     height: auto;
     min-height: 100vh;
-    overflow-x: hidden;
-    background-color: white;
+    /* overflow-x: hidden; */
 }
 
 .bg-custom-gradient {
@@ -23,15 +23,40 @@ body {
     );
 }
 .cabinet-grotesk{
-    font-family: 'CabinetGrotesk-Regular';
+    font-family: "CabinetGrotesk-regular";
 }
-.cabinet-grotesk-bold{
-    font-family: 'CabinetGrotesk-Bold';
+.cabinet-grotesk-medium {
+    font-family: "CabinetGrotesk-Medium";
 }
-.text-gradient{
-    background-image: linear-gradient(to bottom,rgba(255,255,255,1),rgba(153,153,153,1) 90%);
+.cabinet-grotesk-bold {
+    font-family: "CabinetGrotesk-Bold";
+}
+.text-gradient {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1),
+        rgba(153, 153, 153, 1) 90%
+    );
     background-clip: text;
     color: transparent;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0,0,0, 0.5);
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0.8);
 }
 
 @layer base {
@@ -117,9 +142,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Variable";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Variable.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Variable.ttf")
+            format("truetype");
     font-weight: 100 900;
     font-display: swap;
     font-style: normal;
@@ -127,9 +155,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Thin";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Thin.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Thin.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Thin.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Thin.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Thin.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Thin.ttf")
+            format("truetype");
     font-weight: 100;
     font-display: swap;
     font-style: normal;
@@ -137,9 +168,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Extralight";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extralight.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extralight.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extralight.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extralight.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extralight.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extralight.ttf")
+            format("truetype");
     font-weight: 200;
     font-display: swap;
     font-style: normal;
@@ -147,9 +181,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Light";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Light.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Light.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Light.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Light.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Light.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Light.ttf")
+            format("truetype");
     font-weight: 300;
     font-display: swap;
     font-style: normal;
@@ -157,9 +194,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Regular";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Regular.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Regular.ttf")
+            format("truetype");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
@@ -167,9 +207,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Medium";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Medium.ttf")
+            format("truetype");
     font-weight: 500;
     font-display: swap;
     font-style: normal;
@@ -177,9 +220,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Bold";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Bold.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Bold.ttf")
+            format("truetype");
     font-weight: 700;
     font-display: swap;
     font-style: normal;
@@ -187,9 +233,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Extrabold";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.ttf")
+            format("truetype");
     font-weight: 800;
     font-display: swap;
     font-style: normal;
@@ -197,9 +246,12 @@ body {
 
 @font-face {
     font-family: "CabinetGrotesk-Black";
-    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Black.woff2") format("woff2"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Black.woff") format("woff"),
-        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Black.ttf") format("truetype");
+    src: url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Black.woff2")
+            format("woff2"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Black.woff")
+            format("woff"),
+        url("../app/fonts/cabinet-grotesk/CabinetGrotesk-Black.ttf")
+            format("truetype");
     font-weight: 900;
     font-display: swap;
     font-style: normal;

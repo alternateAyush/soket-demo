@@ -24,11 +24,11 @@ const titleAbout =
 const totalWaitlist = 234;
 const Introduction = () => {
     return (
-        <section className='m-0 pb-[100px] relative text-white z-0 bg-white w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
-            <div className='h-auto w-[1150px] mt-[150px] mx-auto flex justify-start items-center'>
-                <div className='flex flex-col justify-start items-start space-y-[40px] w-[58%] h-auto bg-transparent overflow-hidden'>
+        <section className='m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
+            <div className='h-auto w-full px-2 md:px-0 md:w-[1150px] mt-[150px] mx-auto flex justify-start items-center'>
+                <div className='flex flex-col justify-start items-start space-y-[40px] w-full md:w-[58%] h-auto bg-transparent overflow-hidden'>
                     <ul
-                        className={`${spaceMono.className} flex flex-row justify-start items-center space-x-4`}
+                        className={`${spaceMono.className} flex flex-row flex-wrap space-y-2 justify-start items-center space-x-4 w-full`}
                     >
                         {tagList.map((tag, index) => {
                             return (
@@ -41,17 +41,17 @@ const Introduction = () => {
                             );
                         })}
                     </ul>
-                    <div className='cabinet-grotesk text-[4rem] leading-[4.1rem] break-words text-gradient'>
+                    <h1 className='w-full cabinet-grotesk-medium text-[4rem] leading-[4.1rem] break-words text-gradient'>
                         {titleText}
-                    </div>
-                    <p className='text-[rgba(255,255,255,0.6)] text-left cabinet-grotesk-bold'>
+                    </h1>
+                    <p className='text-[rgba(255,255,255,0.6)] text-left cabinet-grotesk-medium text-[1.1rem] w-full'>
                         {titleAbout}
                     </p>
                     <div
                         className={`${spaceMono.className} flex flex-col justify-start items-start space-y-[10px]`}
                     >
                         <button
-                            className={` bg-white text-black flex flex-row justify-center items-center rounded-full border border-black p-[10px] px-[40px] space-x-1`}
+                            className={` bg-white text-black flex flex-row justify-center items-center rounded-full border border-black hover:bg-black hover:text-white hover:border-white p-[10px] px-[40px] space-x-1`}
                         >
                             <span>Join the Waitlist</span>
                             <IoIosArrowForward />
