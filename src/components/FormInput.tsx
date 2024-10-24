@@ -16,7 +16,7 @@ type props = {
 };
 
 const FormInput = ({ id, person, setPerson }: props) => {
-    const handleChange = function (e: any) {
+    const handleChange = function (e:React.ChangeEvent<HTMLInputElement>) {
         if (id === "fullName") {
             setPerson({ ...person, fullName: e.target.value });
         } else if (id === "email") {
