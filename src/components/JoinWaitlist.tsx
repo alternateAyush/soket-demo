@@ -15,7 +15,7 @@ const tagList = [
     { title: "Unified" },
 ];
 
-const totalWaitlist=234;
+const totalWaitlist = 234;
 
 const sectionTitle = "Join the Waitlist for early access to the API";
 
@@ -25,7 +25,7 @@ export const JoinWaitlist = () => {
         email: "",
         website: "",
     });
-    const handleSubmit = function (e: any) {
+    const handleSubmit = function (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
     };
     return (
