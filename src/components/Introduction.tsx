@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import bgImg from "../../public/images/bg_01.png";
 import Image from "next/image";
 import { Space_Mono } from "next/font/google";
 import { IoIosArrowForward } from "react-icons/io";
+import Link from "next/link";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -28,13 +30,13 @@ const Introduction = () => {
             <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
                 <div className='flex flex-col justify-start items-start space-y-[40px] w-full md:w-[58%] h-auto bg-transparent overflow-hidden'>
                     <ul
-                        className={`${spaceMono.className} flex flex-row flex-wrap space-y-2 justify-start items-center space-x-4 w-full`}
+                        className={`${spaceMono.className} flex flex-row flex-wrap justify-start items-center w-full`}
                     >
                         {tagList.map((tag, index) => {
                             return (
                                 <li
                                     key={index}
-                                    className='p-1 px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)] cursor-default'
+                                    className='my-1 mr-2 p-1 px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)] cursor-default'
                                 >
                                     {tag.title}
                                 </li>
@@ -50,15 +52,19 @@ const Introduction = () => {
                     <div
                         className={`${spaceMono.className} flex flex-col justify-start items-start space-y-[10px]`}
                     >
-                        <button
+                        <Link
+                            href={"/home/waitlist"}
                             className={` bg-white text-black flex flex-row justify-center items-center rounded-full border border-black hover:bg-black hover:text-white hover:border-white p-[10px] px-[40px] space-x-1`}
                         >
                             <span>Join the Waitlist</span>
                             <IoIosArrowForward />
-                        </button>
-                        <div className="flex flex-row justify-start items-center space-x-2">
-                            <div className="bg-green-400 rounded-full w-[8px] h-[8px]"></div>
-                            <span className="text-white text-[12px]">{totalWaitlist} people already signed up</span>
+                        </Link>
+
+                        <div className='flex flex-row justify-start items-center space-x-2'>
+                            <div className='bg-green-400 rounded-full w-[8px] h-[8px]'></div>
+                            <span className='text-white text-[12px]'>
+                                {totalWaitlist} people already signed up
+                            </span>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import iconImage from "../../public/images/icon_01.png";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -21,6 +22,7 @@ const navList = [
 ];
 
 const Navbar = () => {
+    const pathName = usePathname();
     const [menu, setMenu] = useState(false);
     return (
         <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-auto md:h-[80px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.4)] backdrop-blur-[8px]'>
@@ -51,10 +53,17 @@ const Navbar = () => {
                             );
                         })}
                     </ul>
-                    <button className='hidden md:flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'>
-                        <span>{`Join the Waitlist`}</span>
-                        <IoIosArrowForward />
-                    </button>
+                    {pathName !== "/home/waitlist" ? (
+                        <Link
+                            href={"/home/waitlist"}
+                            className='hidden md:flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'
+                        >
+                            <span>{`Join the Waitlist`}</span>
+                            <IoIosArrowForward />
+                        </Link>
+                    ) : (
+                        <></>
+                    )}
                     <button
                         onClick={() => {
                             setMenu(!menu);
@@ -89,12 +98,19 @@ const Navbar = () => {
                             </li>
                         );
                     })}
-                    <div className='w-full flex justify-center items-center'>
-                        <button className='flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'>
-                            <span>{`Join the Waitlist`}</span>
-                            <IoIosArrowForward />
-                        </button>
-                    </div>
+                    {pathName !== "/home/waitlist" ? (
+                        <div className='w-full flex justify-center items-center'>
+                            <Link
+                                href={"/home/waitlist"}
+                                className='flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'
+                            >
+                                <span>{`Join the Waitlist`}</span>
+                                <IoIosArrowForward />
+                            </Link>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </ul>
             </div>
         </div>

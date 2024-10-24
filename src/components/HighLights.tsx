@@ -37,7 +37,7 @@ const HighLights = () => {
                     {"// "}
                     {sectionName}
                 </span>
-                <h2 className='w-full md:w-[75%] text-[3rem] cabinet-grotesk-medium break-words'>
+                <h2 className='w-full md:w-[75%] text-[3rem] leading-[3.1rem] cabinet-grotesk-medium break-words'>
                     {sectionTitle}
                 </h2>
             </div>

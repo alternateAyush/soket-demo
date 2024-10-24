@@ -40,7 +40,7 @@ const Features = () => {
                     {"// "}
                     {sectionName}
                 </span>
-                <h2 className='w-full md:w-[50%] text-[3rem] cabinet-grotesk-medium break-words text-gradient'>
+                <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk-medium break-words text-gradient'>
                     {sectionTitle}
                 </h2>
                 <div className='w-full flex flex-col justify-start items-start space-y-[40px]'>
@@ -65,7 +65,7 @@ const Features = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-full h-[120px] bg-custom-gradient-2 opacity-50'></div>
+            <div className='w-full h-[150px] bg-custom-gradient-2 opacity-40'></div>
         </section>
     );
 };
