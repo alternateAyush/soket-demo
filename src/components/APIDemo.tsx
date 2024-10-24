@@ -1,5 +1,9 @@
 import React from "react";
 import { Space_Mono } from "next/font/google";
+import { IoIosArrowDown } from "react-icons/io";
+import { GoArrowSwitch } from "react-icons/go";
+import { RxSpeakerLoud } from "react-icons/rx";
+import { HiOutlineMicrophone } from "react-icons/hi2";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -33,19 +37,74 @@ const APIDemo = () => {
                 <h2 className='w-full md:w-[75%] text-[3rem] leading-[3.1rem] break-words'>
                     {sectionTitle}
                 </h2>
-                <div className="h-auto relative">
-                    <ul className={`${spaceMono.className} z-0 text-[14px] flex flex-row justify-start items-center flex-wrap`}>
-                        {
-                            instructionList.map((instruction,index)=>{
-                                return <li key={index} className={`${(index+1===instructionList.length)? `mr-0`:`mr-4`} my-1 bg-white tracking-wider p-1 px-[20px] border-[1.5px] border-dashed rounded-full border-black`}>
+                <div className='h-auto relative'>
+                    <ul
+                        className={`${spaceMono.className} z-0 text-[14px] flex flex-row justify-start items-center flex-wrap`}
+                    >
+                        {instructionList.map((instruction, index) => {
+                            return (
+                                <li
+                                    key={index}
+                                    className={`${
+                                        index + 1 === instructionList.length
+                                            ? `mr-0`
+                                            : `mr-4`
+                                    } my-1 bg-white tracking-wider p-1 px-[20px] border-[1.5px] border-dashed rounded-full border-black hover:bg-[rgba(240,240,240,1)] hover:border-solid`}
+                                >
                                     {instruction.title}
                                 </li>
-                            })
-                        }
-                    <div className="-z-10 w-full absolute top-1/2 left-0 border-[1.5px] border-dashed border-black"></div>
+                            );
+                        })}
+                        <div className='-z-10 w-full absolute top-1/2 left-0 border-[1.5px] border-dashed border-black'></div>
                     </ul>
                 </div>
-                <div className="w-full h-[400px] bg-[rgba(249, 249, 249, 1)] border border-[rgba(0, 0, 0, 0.14)] rounded-xl"></div>
+                <div className='w-full h-[400px] p-[10px] md:p-[30px] bg-[rgba(240,240,240,1)] border border-[rgba(0,0,0,0.3)] rounded-xl'>
+                    <div className='mx-auto md:mx-0 w-3/4  md:w-full h-auto md:h-[40px] flex flex-col md:flex-row justify-center md:justify-between items-stretch space-y-4 md:space-y-0'>
+                        <div className='py-2 md:py-0 px-[20px] flex justify-center items-center space-x-1 flex-nowrap bg-white text-[rgba(0,0,0,0.3)] rounded-full border border-[rgba(0,0,0,0.3)] hover:text-[rgba(0,0,0,1)] hover:border-[rgba(0,0,0,1)]'>
+                            <span className='text-[14px]'>
+                                Speech to Speech
+                            </span>
+                            <IoIosArrowDown size={16} />
+                        </div>
+                        <div className='py-2 md:py-0 rounded-lg px-1 bg-white flex flex-row flex-nowrap justify-center items-center space-x-2 text-[rgba(0,0,0,0.3)] text-[12px] hover:text-black'>
+                            <div className='bg-[rgba(240,240,240,1)] border border-[rgba(0,0,0,0.3)] p-1 px-[20px] rounded-lg flex flex-row flex-nowrap justify-center items-center space-x-1 hover:bg-white hover:border-black'>
+                                <span>English</span>
+                                <IoIosArrowDown size={14} />
+                            </div>
+                            <GoArrowSwitch size={16} />
+                            <div className='bg-[rgba(240,240,240,1)] border border-[rgba(0,0,0,0.3)] p-1 px-[20px] rounded-lg flex flex-row flex-nowrap justify-center items-center space-x-1 hover:bg-white hover:border-black'>
+                                <span>Hindi</span>
+                                <IoIosArrowDown size={14} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='mt-[75px] flex flex-row justify-end items-center w-full flex-nowrap'>
+                        <div className='py-[15px] px-[30px] rounded-full text-[16px] bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,1)]'>
+                            <span>{`Hello, how are you?`}</span>
+                        </div>
+                    </div>
+                    <div className='mt-[30px] flex flex-row justify-start items-center w-full flex-nowrap space-x-4'>
+                        <div className='py-[15px] px-[30px] rounded-full text-[16px] bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,1)]'>
+                            <span>{`नमस्ते, आप कैसे हैं`}</span>
+                        </div>
+                        <div className='p-[20px] flex justify-center items-center rounded-full bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,0.5)] hover:bg-white hover:text-black'>
+                            <div className='rounded-full h-[20px] w-[20px] overflow-hidden'>
+                                <RxSpeakerLoud size={20} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='mt-[30px] flex flex-row justify-between items-center w-full flex-nowrap space-x-4'>
+                        <div className='flex flex-row justify-between items-center w-full rounded-full bg-white overflow-hidden'>
+                            <input className="w-full outline-none text-[16px]"/>
+                            <button>
+                                <span>Translate</span>
+                            </button>
+                        </div>
+                        <button>
+                            <HiOutlineMicrophone />
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
     );
