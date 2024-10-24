@@ -1,6 +1,7 @@
 import Introduction from "@/components/Introduction"
 import HighLights from "@/components/HighLights"
 import Features from "@/components/Features"
+import APIDemo from "@/components/APIDemo"
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Introduction/>
       <HighLights/>
       <Features/>
+      <APIDemo/>
     </div>
   )
 }

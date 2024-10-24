@@ -1,5 +1,9 @@
 import React from "react";
 import { Space_Mono } from "next/font/google";
+import Image from "next/image";
+import hightlight_01 from "../../public/images/highlight_01.png"
+import hightlight_02 from "../../public/images/highlight_02.png"
+import hightlight_03 from "../../public/images/highlight_03.png"
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -12,17 +16,17 @@ const sectionTitle =
 const highlightList = [
     {
         title: "Real-Time Multilingual Translation",
-        imgPath: "/images/highlight_01.png",
+        imgPath: hightlight_01,
         para: "Effortlessly translate spoken words across multiple languages for smooth cross-border communication.",
     },
     {
         title: "Automatic Speech Recognition (ASR)",
-        imgPath: "/images/highlight_02.png",
+        imgPath: hightlight_02,
         para: "Get instant transcriptions of business calls and interactions, enhancing efficiency and decision-making.",
     },
     {
         title: "Speech-to-Speech Translation",
-        imgPath: "/images/highlight_03.png",
+        imgPath: hightlight_03,
         para: "Enable conversations between speakers of different languages, ideal for customer support/international collaboration.",
     },
 ];
@@ -56,9 +60,9 @@ const HighLights = () => {
                                 <span className='w-full text-right text-[20px] text-[rgba(0,0,0,0.4)]'>
                                     0{index + 1}
                                 </span>
-                                <div className='w-full h-[350px] mx-auto relative overflow-hidden'>
-                                    <img
-                                        className='object-fit object-center'
+                                <div className='w-full flex flex-row justify-center items-center mx-auto relative overflow-hidden'>
+                                    <Image
+                                        className='w-full object-contain object-center'
                                         src={highlight.imgPath}
                                         alt={highlight.title}
                                     />

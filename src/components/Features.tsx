@@ -22,7 +22,7 @@ const featureList = [
     },
     {
         title: "Text-to-Speech",
-        subtitle: "(TTS)",
+        subTitle: `(TTS)`,
         para: "Deliver human-like audio in multiple languages, creating a personalized and engaging customer experience.",
     },
 ];
@@ -44,8 +44,8 @@ const Features = () => {
                     {sectionTitle}
                 </h2>
                 <div className='w-full flex flex-col justify-start items-start space-y-[40px]'>
-                    <div className='pt-3 px-3 md:py-0 md:px-0 w-full flex flex-col md:flex-row space-y-4 md:space-y-0 justify-evenly items-center h-auto border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)]'>
-                        <div className='h-auto flex flex-col items-start space-y-4 w-full md:w-2/6'>
+                    <div className='w-full flex flex-col md:flex-row space-y-4 md:space-y-0 justify-evenly items-center h-auto border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)]'>
+                        <div className='mt-3 px-3 md:px-0 md:mt-0 md:mx-0 h-auto flex flex-col items-start space-y-4 w-full md:w-2/6'>
                             <h3 className='text-white text-[1.5rem]'>
                                 {featureList[0].title}
                             </h3>
@@ -54,18 +54,48 @@ const Features = () => {
                             </p>
                             <button className='flex flex-row justify-center items-center space-x-2 rounded-lg text-[16px] p-2 border border-transparent hover:border-white'>
                                 <span>Try Now</span>
-                                <IoIosArrowForward/>
+                                <IoIosArrowForward />
                             </button>
                         </div>
-                        <div className='h-[300px] flex flex-col space-y-4 w-full md:w-2/6 bg-black'></div>
+                        <div className='h-[300px] w-full md:w-[48%] bg-white rounded-b-xl md:rounded-none'></div>
                     </div>
-                    <div className='w-full flex flex-row space-x-[40px] justify-between items-center h-[500px]'>
-                        <div className='w-full h-full border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)]'></div>
-                        <div className='w-full h-full border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)]'></div>
+                    <div className='w-full flex flex-col md:flex-row space-y-[40px] md:space-y-0 md:space-x-[40px] justify-between items-center h-auto md:h-[500px]'>
+                        <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)] md:overflow-hidden'>
+                            <div className='md:mt-[50px] h-auto flex flex-col items-start space-y-4 w-full md:w-[75%] mx-auto'>
+                                <div className='mt-3 mx-3 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
+                                    <h3 className='inline text-white text-[1.5rem]'>
+                                        {featureList[1].title}
+                                    </h3>
+                                    <h5 className='inline text-[rgba(255,255,255,0.7)] text-[1.1rem] break-words'>
+                                        {featureList[1].subTitle}
+                                    </h5>
+                                </div>
+                                <p className='mx-3 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
+                                    {featureList[1].para}
+                                </p>
+                            </div>
+                            <div className='h-[300px] w-full bg-white rounded-b-xl'></div>
+                        </div>
+                        <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)] md:overflow-hidden'>
+                            <div className='md:mt-[50px] h-auto flex flex-col items-start space-y-4 w-full md:w-[75%] mx-auto'>
+                                <div className='mt-3 mx-3 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
+                                    <h3 className='inline text-white text-[1.5rem]'>
+                                        {featureList[2].title}
+                                    </h3>
+                                    <h5 className='inline text-[rgba(255,255,255,0.7)] text-[1.1rem] break-words'>
+                                        {featureList[2].subTitle}
+                                    </h5>
+                                </div>
+                                <p className='mx-3 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
+                                    {featureList[2].para}
+                                </p>
+                            </div>
+                            <div className='h-[300px] w-full bg-white rounded-b-xl'></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className='w-full h-[150px] bg-custom-gradient-2 opacity-40'></div>
+            <div className='-z-[40] w-full h-[150px] bg-custom-gradient-2 opacity-70'></div>
         </section>
     );
 };
