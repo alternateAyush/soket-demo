@@ -20,7 +20,7 @@ const page = () => {
                 </div>
             </div>
             <JoinWaitlist />
-            <div className="w-full mt-[100px] mb-[50px] flex flex-row space-x-2 justify-center items-end">
+            <div className="w-full mt-[120px] mb-[30px] flex flex-row space-x-2 justify-center items-end">
                 <span className="text-[rgba(255,255,255,0.7)] text-[1rem]">powered by</span>
                 <div className="overflow-hidden flex justify-center items-center">
                     <Image src={iconImg} alt="soketlabs_icon" width={120} className="object-contain" />
