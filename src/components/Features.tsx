@@ -1,6 +1,10 @@
 import React from "react";
 import { Space_Mono } from "next/font/google";
 import { IoIosArrowForward } from "react-icons/io";
+import featureImage_01 from "../../public/images/feature_img_01.png";
+import featureImage_02 from "../../public/images/feature_img_02.png";
+import featureImage_03 from "../../public/images/feature_img_03.png";
+import Image from "next/image";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -13,16 +17,19 @@ const featureList = [
     {
         title: "Actionable Commands",
         subTitle: "",
+        imgPath: featureImage_01,
         para: "Automate tasks using speech or text commands, improving productivity and eliminating manual intervention.",
     },
     {
         title: "Speech-RAG",
         subTitle: "(Retrieval-Augmented Generation)",
+        imgPath: featureImage_02,
         para: "Generate context-aware responses in real-time for smarter, more responsive communication.",
     },
     {
         title: "Text-to-Speech",
         subTitle: `(TTS)`,
+        imgPath: featureImage_03,
         para: "Deliver human-like audio in multiple languages, creating a personalized and engaging customer experience.",
     },
 ];
@@ -44,7 +51,7 @@ const Features = () => {
                     {sectionTitle}
                 </h2>
                 <div className='w-full flex flex-col justify-start items-start space-y-[40px]'>
-                    <div className='w-full flex flex-col md:flex-row space-y-4 md:space-y-0 justify-evenly items-center h-auto border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)]'>
+                    <div className='w-full flex flex-col md:flex-row space-y-4 md:space-y-0 justify-evenly items-center h-auto border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(17,19,23,1)]'>
                         <div className='mt-3 px-3 md:px-0 md:mt-0 md:mx-0 h-auto flex flex-col items-start space-y-4 w-full md:w-2/6'>
                             <h3 className='text-white text-[1.5rem]'>
                                 {featureList[0].title}
@@ -57,10 +64,16 @@ const Features = () => {
                                 <IoIosArrowForward />
                             </button>
                         </div>
-                        <div className='h-[300px] w-full md:w-[48%] bg-white rounded-b-xl md:rounded-none'></div>
+                        <div className='h-[250px] md:h-[300px] md:w-[48%] bg-transparent rounded-b-xl md:rounded-none overflow-hidden'>
+                            <Image
+                                src={featureList[0].imgPath}
+                                alt={featureList[0].title}
+                                className='h-full object-contain object-bottom'
+                            />
+                        </div>
                     </div>
                     <div className='w-full flex flex-col md:flex-row space-y-[40px] md:space-y-0 md:space-x-[40px] justify-between items-center h-auto md:h-[500px]'>
-                        <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)] md:overflow-hidden'>
+                        <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(17,19,23,1)] md:overflow-hidden'>
                             <div className='md:mt-[50px] h-auto flex flex-col items-start space-y-4 w-full md:w-[75%] mx-auto'>
                                 <div className='mt-3 mx-3 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
                                     <h3 className='inline text-white text-[1.5rem]'>
@@ -74,9 +87,15 @@ const Features = () => {
                                     {featureList[1].para}
                                 </p>
                             </div>
-                            <div className='h-[300px] w-full bg-white rounded-b-xl'></div>
+                            <div className='h-[250px] md:h-[300px] w-full bg-transparent rounded-b-xl'>
+                                <Image
+                                    src={featureList[1].imgPath}
+                                    alt={featureList[1].title}
+                                    className='h-full object-contain object-bottom'
+                                />
+                            </div>
                         </div>
-                        <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(18,19,24,1)] md:overflow-hidden'>
+                        <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(17,19,23,1)] md:overflow-hidden'>
                             <div className='md:mt-[50px] h-auto flex flex-col items-start space-y-4 w-full md:w-[75%] mx-auto'>
                                 <div className='mt-3 mx-3 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
                                     <h3 className='inline text-white text-[1.5rem]'>
@@ -90,7 +109,13 @@ const Features = () => {
                                     {featureList[2].para}
                                 </p>
                             </div>
-                            <div className='h-[300px] w-full bg-white rounded-b-xl'></div>
+                            <div className='h-[250px] md:h-[300px] w-full bg-transparent rounded-b-xl'>
+                                <Image
+                                    src={featureList[2].imgPath}
+                                    alt={featureList[2].title}
+                                    className='h-full object-contain object-bottom'
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
