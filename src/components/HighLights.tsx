@@ -46,7 +46,7 @@ const HighLights = () => {
                 </h2>
             </div>
             <div className='w-[100vw] mt-[40px] border-t border-[rgba(0,0,0,0.3)] cabinet-grotesk-medium'>
-                <div className='w-full md:w-[1150px] mx-auto grid grid=cols-1 md:grid-cols-3'>
+                <div className='w-full md:w-[1150px] mx-auto grid grid-cols-1 md:grid-cols-3'>
                     {highlightList.map((highlight, index) => {
                         return (
                             <div

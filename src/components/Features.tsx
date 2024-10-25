@@ -5,6 +5,7 @@ import featureImage_01 from "../../public/images/feature_img_01.png";
 import featureImage_02 from "../../public/images/feature_img_02.png";
 import featureImage_03 from "../../public/images/feature_img_03.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -59,10 +60,10 @@ const Features = () => {
                             <p className='text-[rgba(255,255,255,0.7)] text-[16px]'>
                                 {featureList[0].para}
                             </p>
-                            <button className='flex flex-row justify-center items-center space-x-2 rounded-lg text-[16px] p-2 border border-transparent hover:border-white'>
+                            <Link href="/home#features" className='flex flex-row justify-center items-center space-x-2 rounded-lg text-[16px] p-2 border border-transparent hover:border-white'>
                                 <span>Try Now</span>
                                 <IoIosArrowForward />
-                            </button>
+                            </Link>
                         </div>
                         <div className='h-[250px] md:h-[300px] md:w-[48%] bg-transparent rounded-b-xl md:rounded-none overflow-hidden'>
                             <Image

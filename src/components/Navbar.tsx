@@ -16,7 +16,7 @@ const spaceMono = Space_Mono({
 const navList = [
     { title: "Features", url: "/home#features" },
     { title: "Demo", url: "/demo/s2s" },
-    { title: "Industries", url: "" },
+    { title: "Industries", url: "/home#industries" },
     { title: "Workflows", url: "" },
     { title: "API Documentation", url: "" },
 ];

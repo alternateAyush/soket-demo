@@ -1,9 +1,11 @@
 import React from "react";
 import { Space_Mono } from "next/font/google";
-import { IoIosArrowDown,IoIosArrowForward  } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { GoArrowSwitch } from "react-icons/go";
 import { RxSpeakerLoud } from "react-icons/rx";
 import { HiOutlineMicrophone } from "react-icons/hi2";
+import atom from '../../public/images/atom.png'
+import Image from "next/image";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -24,7 +26,7 @@ const instructionList = [
     },
 ];
 
-const inputPlaceholder = "Enter the text you want to translate......"
+const inputPlaceholder = "Enter the text you want to translate......";
 
 const APIDemo = () => {
     return (
@@ -85,8 +87,14 @@ const APIDemo = () => {
                             <span>{`Hello, how are you?`}</span>
                         </div>
                     </div>
-                    <div className='mt-[30px] flex flex-row justify-start items-center w-full flex-nowrap space-x-4'>
-                        <div className='py-[15px] px-[30px] rounded-full text-[16px] bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,1)]'>
+                    <div className='mt-[30px] flex flex-row flex-nowrap justify-start items-center space-x-2'>
+                        <div className="h-[40px] w-[40px] flex flex-row justify-center items-center border rounded-full border-[rgba(0,0,0,0.3)] bg-white overflow-hidden">
+                            <Image src={atom} alt="atom icon" className="w-1/2 object-contain object-center"/>
+                        </div>
+                        <span className="text-[14px] text-[rgba(0,0,0,0.5)]">{`Transcribing it....`}</span>
+                    </div>
+                    <div className='mt-[5px] flex flex-row justify-start items-center w-full flex-nowrap space-x-4'>
+                        <div className='ml-[40px] py-[15px] px-[30px] rounded-full text-[16px] bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,1)]'>
                             <span>{`नमस्ते, आप कैसे हैं`}</span>
                         </div>
                         <div className='p-[20px] flex justify-center items-center rounded-full bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,0.5)] hover:bg-white hover:text-black'>
@@ -97,14 +105,19 @@ const APIDemo = () => {
                     </div>
                     <div className='mt-[30px] flex flex-row justify-between items-center w-full flex-nowrap space-x-1 md:space-x-4'>
                         <div className='flex flex-row justify-between items-center w-full rounded-full bg-white overflow-hidden border border-[rgba(0,0,0,0.1)]'>
-                            <input className="w-full h-full p-[10px] md:pl-[30px] pr-[10px] outline-none text-[14px] word-spacing" placeholder={inputPlaceholder}/>
-                            <button className="flex flex-row justify-center items-center flex-nowrap space-x-2 button-gradient px-[8px] md:px-[30px] py-[10px] rounded-full text-[16px] text-white">
-                                <span className="hidden md:inline">Translate</span>
-                                <IoIosArrowForward size={15}/>
+                            <input
+                                className='w-full h-full p-[10px] md:pl-[30px] pr-[10px] outline-none text-[14px] word-spacing'
+                                placeholder={inputPlaceholder}
+                            />
+                            <button className='flex flex-row justify-center items-center flex-nowrap space-x-2 button-gradient px-[8px] md:px-[30px] py-[10px] rounded-full text-[16px] text-white'>
+                                <span className='hidden md:inline'>
+                                    Translate
+                                </span>
+                                <IoIosArrowForward size={15} />
                             </button>
                         </div>
-                        <button className="h-[40px] w-[40px] md:h-[50px] md:w-[50px] rounded-[60px] flex flex-row justify-center items-center button-gradient text-white border-2 border-[rgba(255,255,255,0.3)] overflow-hidden">
-                            <HiOutlineMicrophone size={25}/>
+                        <button className='h-[40px] w-[40px] md:h-[50px] md:w-[50px] rounded-[60px] flex flex-row justify-center items-center button-gradient text-white border-2 border-[rgba(255,255,255,0.3)] overflow-hidden'>
+                            <HiOutlineMicrophone size={25} />
                         </button>
                     </div>
                 </div>

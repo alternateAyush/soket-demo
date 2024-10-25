@@ -2,6 +2,7 @@ import Introduction from "@/components/Introduction"
 import HighLights from "@/components/HighLights"
 import Features from "@/components/Features"
 import APIDemo from "@/components/APIDemo"
+import Industries from "@/components/Industries"
 
 const HomePage = () => {
   return (
@@ -10,6 +11,7 @@ const HomePage = () => {
       <HighLights/>
       <Features/>
       <APIDemo/>
+      <Industries/>
     </div>
   )
 }
