@@ -26,7 +26,7 @@ const titleAbout =
 const totalWaitlist = 234;
 const Introduction = () => {
     return (
-        <section className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
+        <section id='about' className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
             <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
                 <div className='flex flex-col justify-start items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
                     <ul

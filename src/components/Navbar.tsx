@@ -25,7 +25,7 @@ const Navbar = () => {
     const pathName = usePathname();
     const [menu, setMenu] = useState(false);
     return (
-        <div className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-auto md:h-[80px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.4)] backdrop-blur-[8px]'>
+        <nav id='nav' className='m-0 p-0 fixed z-10 top-0 left-0 w-[100vw] h-auto md:h-[80px] overflow-hidden text-white border-b border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.4)] backdrop-blur-[8px]'>
             <div className='px-3 md:p-0 my-auto md:my-0 w-full md:w-[1150px] flex flex-row h-[80px] md:h-full justify-between items-center mx-auto'>
                 <div>
                     <Image
@@ -113,7 +113,7 @@ const Navbar = () => {
                     )}
                 </ul>
             </div>
-        </div>
+        </nav>
     );
 };
 
