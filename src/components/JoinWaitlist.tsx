@@ -69,7 +69,7 @@ export const JoinWaitlist = () => {
                         />
                         <button
                             type='submit'
-                            className='backdrop-blur-[10px] flex flex-row justify-center items-center space-x-1 w-full rounded-full bg-[rgba(255,255,255,0.8)] text-black h-[50px] overflow-hidden active:bg-[rgba(0,0,0,0.7)] active:text-[rgba(255,255,255,1)]'
+                            className='backdrop-blur-[10px] flex flex-row justify-center items-center space-x-1 w-full rounded-full bg-[rgba(255,255,255,1)] text-black h-[50px] overflow-hidden active:bg-[rgba(0,0,0,0.7)] active:text-[rgba(255,255,255,1)]'
                         >
                             <span>Join the Waitlist</span>
                             <IoIosArrowForward />

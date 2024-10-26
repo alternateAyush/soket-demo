@@ -32,6 +32,13 @@ body {
 .bg-custom-gradient-2 {
     background-image: linear-gradient(to top, rgba(144, 177, 242, 0.5), black);
 }
+.bg-custom-gradient-3 {
+    background-image: linear-gradient(
+        to top,
+        rgba(144, 177, 242, 0.8),
+        rgba(255, 255, 255, 1)
+    );
+}
 .cabinet-grotesk {
     font-family: "CabinetGrotesk-regular";
 }
@@ -60,7 +67,7 @@ body {
     background-image: linear-gradient(180deg, #000000 0%, #666666 150%);
 }
 .word-spacing {
-    word-spacing: 5px;
+    word-spacing: 3px;
 }
 .tag-gradient {
     background-image: linear-gradient(

@@ -80,15 +80,15 @@ const Footer = () => {
                     <div className='flex flex-col justify-start items-start space-y-6'>
                         <h4 className='uppercase text-[14px]'>{`info`}</h4>
                         <ul className='flex flex-col justify-start items-start space-y-3'>
-                            {infoList.map((link, index) => {
+                            {infoList.map((info, index) => {
                                 return (
                                     <Link
                                         key={index}
-                                        href={link.url}
+                                        href={info.url}
                                         className='text-[rgba(255,255,255,0.5)] hover:text-white'
                                     >
-                                        <span className='text-[14px] text-[rgba(255,255,255,0.5)]'>
-                                            {link.title}
+                                        <span className='text-[14px]'>
+                                            {info.title}
                                         </span>
                                     </Link>
                                 );
@@ -98,15 +98,15 @@ const Footer = () => {
                     <div className='flex flex-col justify-start items-start space-y-6'>
                         <h4 className='uppercase text-[14px]'>{`soket labs`}</h4>
                         <ul className='flex flex-col justify-start items-start space-y-3'>
-                            {soketLabList.map((link, index) => {
+                            {soketLabList.map((item, index) => {
                                 return (
                                     <Link
                                         key={index}
-                                        href={link.url}
+                                        href={item.url}
                                         className='text-[rgba(255,255,255,0.5)] hover:text-white'
                                     >
-                                        <span className='text-[14px] text-[rgba(255,255,255,0.5)]'>
-                                            {link.title}
+                                        <span className='text-[14px]'>
+                                            {item.title}
                                         </span>
                                     </Link>
                                 );
@@ -115,7 +115,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-[150px] py-[70px] border-t border-[rgba(212,218,255,0.15)] w-full'>
+            <div className='mt-[150px] pt-[30px] pb-[70px] border-t border-[rgba(212,218,255,0.15)] w-full'>
                 <div className='px-[20px] md:px-0 mx-auto w-full md:w-[1150px] flex flex-col space-y-6 md:space-y-0  md:flex-row justify-between items-center'>
                     <div className='flex flex-row justify-start items-center space-x-6 text-[14px] text-[rgba(255,255,255,0.7)]'>
                         <Link href='home#footer' className='hover:text-white'>

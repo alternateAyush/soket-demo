@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MdOutlineArrowBack } from "react-icons/md";
 import iconImg from "../../../../public/images/icon_02.png"
 
-const page = () => {
+const WaitlistPage = () => {
     return (
         <section className='pt-[100px] m-0 relative z-0 h-auto min-h-[100vh] overflow-hidden text-white cabinet-grotesk-medium'>
             <div className='w-full flex flex-row justify-start items-center'>
@@ -38,4 +38,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default WaitlistPage;

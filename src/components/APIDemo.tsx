@@ -106,7 +106,7 @@ const APIDemo = () => {
                     <div className='mt-[30px] flex flex-row justify-between items-center w-full flex-nowrap space-x-1 md:space-x-4'>
                         <div className='flex flex-row justify-between items-center w-full rounded-full bg-white overflow-hidden border border-[rgba(0,0,0,0.1)]'>
                             <input
-                                className='w-full h-full p-[10px] md:pl-[30px] pr-[10px] outline-none text-[14px] word-spacing'
+                                className={`${spaceMono.className} w-full h-full p-[10px] md:pl-[30px] pr-[10px] outline-none text-[14px] word-spacing`}
                                 placeholder={inputPlaceholder}
                             />
                             <button className='flex flex-row justify-center items-center flex-nowrap space-x-2 button-gradient px-[8px] md:px-[30px] py-[10px] rounded-full text-[16px] text-white'>
