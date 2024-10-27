@@ -13,11 +13,11 @@ const spaceMono = Space_Mono({
 const sectionName = "reviews";
 const sectionTitle = "S2S API Applications Across Different Industries";
 
-const reviewList = [
-    {
-        para: "Changing our CRM platform to helps me keep a clean, organized ledger that I can access in the anywhere system. I also love the financial from reports! Integer Sed the of scelerisque odio in tellus scelerisque fringilla.",
-    },
-];
+// const reviewList = [
+//     {
+//         para: "Changing our CRM platform to helps me keep a clean, organized ledger that I can access in the anywhere system. I also love the financial from reports! Integer Sed the of scelerisque odio in tellus scelerisque fringilla.",
+//     },
+// ];
 
 const Reviews = () => {
     return (
