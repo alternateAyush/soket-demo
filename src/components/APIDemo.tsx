@@ -89,7 +89,7 @@ const APIDemo = () => {
                     </div>
                     <div className='mt-[30px] flex flex-row flex-nowrap justify-start items-center space-x-2'>
                         <div className="h-[40px] w-[40px] flex flex-row justify-center items-center border rounded-full border-[rgba(0,0,0,0.3)] bg-white overflow-hidden">
-                            <Image src={atom} alt="atom icon" className="w-1/2 object-contain object-center"/>
+                            <Image src={atom} alt="atom icon" className="w-1/2 h-auto object-contain object-center"/>
                         </div>
                         <span className="text-[14px] text-[rgba(0,0,0,0.5)]">{`Transcribing it....`}</span>
                     </div>

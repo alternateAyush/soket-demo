@@ -40,7 +40,7 @@ const demoVideostList = [
 
 const DemoVideos = () => {
     const handleClick = function (btn: string) {
-        console.log("click");
+        console.log(btn,"clicked");
     };
     return (
         <section

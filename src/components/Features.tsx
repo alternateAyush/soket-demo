@@ -69,7 +69,7 @@ const Features = () => {
                             <Image
                                 src={featureList[0].imgPath}
                                 alt={featureList[0].title}
-                                className='h-full object-contain object-bottom'
+                                className='h-full w-auto object-contain object-bottom'
                             />
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const Features = () => {
                                 <Image
                                     src={featureList[1].imgPath}
                                     alt={featureList[1].title}
-                                    className='h-full object-contain object-bottom'
+                                    className='h-full w-auto object-contain object-bottom'
                                 />
                             </div>
                         </div>
@@ -114,7 +114,7 @@ const Features = () => {
                                 <Image
                                     src={featureList[2].imgPath}
                                     alt={featureList[2].title}
-                                    className='h-full object-contain object-bottom'
+                                    className='h-full w-auto object-contain object-bottom'
                                 />
                             </div>
                         </div>

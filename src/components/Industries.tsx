@@ -68,7 +68,7 @@ const Industries = () => {
                                 <Image
                                     src={industry.imgPath}
                                     alt={industry.title}
-                                    className='h-full object-contain object-left'
+                                    className='h-full w-auto object-contain object-left'
                                 />
                             </div>
                             <h3 className='text-[1.5rem]'>{industry.title}</h3>

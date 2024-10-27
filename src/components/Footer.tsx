@@ -55,7 +55,7 @@ const Footer = () => {
                     <Image
                         src={icon}
                         alt='speech-to-speech icon'
-                        className='w-full object-contain object-left'
+                        className='w-full h-auto object-contain object-left'
                     />
                 </div>
                 <div className='flex flex-row w-full md:w-1/2 justify-between md:justify-start md:space-x-[120px] items-start flex-wrap'>

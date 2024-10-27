@@ -62,7 +62,7 @@ const HighLights = () => {
                                 </span>
                                 <div className='h-[350px] flex flex-row justify-center items-center mx-auto relative overflow-hidden'>
                                     <Image
-                                        className='h-full object-contain object-center'
+                                        className='h-full w-auto object-contain object-center'
                                         src={highlight.imgPath}
                                         alt={highlight.title}
                                     />

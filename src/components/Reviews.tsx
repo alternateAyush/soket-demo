@@ -46,7 +46,7 @@ const Reviews = () => {
                         <Image
                             src={bgImg}
                             alt='world-map'
-                            className='w-full object-contain object-bottom'
+                            className='w-full h-auto object-contain object-bottom'
                         />
                     </div>
                 </div>
@@ -81,7 +81,7 @@ const Reviews = () => {
                             <Image
                                 src={r_com_icon}
                                 alt='orbital icon'
-                                className='h-full object-contain object-left'
+                                className='h-full w-auto object-contain object-left'
                             />
                         </div>
                         <ul className='w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
