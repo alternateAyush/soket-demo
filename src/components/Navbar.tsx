@@ -90,7 +90,7 @@ const Navbar = () => {
                     {navList.map((navItem, index) => {
                         return (
                             <li key={index}>
-                                <Link href={navItem.url}>
+                                <Link href={navItem.url} onClick={()=>{setMenu(!menu)}}>
                                     <span className='hover:underline-offset-4 hover:underline hover:text-[rgba(255,255,255,0.8)]'>
                                         {navItem.title}
                                     </span>
@@ -102,6 +102,7 @@ const Navbar = () => {
                         <div className='w-full flex justify-center items-center'>
                             <Link
                                 href={"/home/waitlist"}
+                                onClick={()=>{setMenu(!menu)}}
                                 className='flex justify-center items-center space-x-1 p-2 px-[20px] rounded-full border bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)]'
                             >
                                 <span>{`Join the Waitlist`}</span>

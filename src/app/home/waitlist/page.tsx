@@ -31,7 +31,7 @@ const WaitlistPage = () => {
                 <Image
                     src={bgImg}
                     alt='background image'
-                    className='w-full h-full'
+                    className='w-full h-full object-cover object-center'
                 />
             </div>
         </section>

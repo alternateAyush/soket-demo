@@ -45,7 +45,7 @@ export const JoinWaitlist = () => {
                             );
                         })}
                     </ul>
-                    <h2 className='w-full md:w-[90%] text-[3.2rem] leading-[3.25rem] text-center cabinet-grotesk-medium break-words text-gradient'>
+                    <h2 className='w-full md:w-[90%] text-[3.2rem] leading-[3.25rem] text-center cabinet-grotesk break-words text-gradient'>
                         {sectionTitle}
                     </h2>
                     <form

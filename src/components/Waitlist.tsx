@@ -30,7 +30,7 @@ const Waitlist = () => {
                         {"// "}
                         {sectionName}
                     </span>
-                    <h2 className='w-full text-[5rem] leading-[5.1rem] break-words text-center'>
+                    <h2 className='w-full text-[3.5rem] leading-[3.6rem] md:text-[5rem] md:leading-[5.1rem] break-words text-center cabinet-grotesk'>
                         {sectionTitle}
                     </h2>
                     <p className='w-[80%] text-[16px] text-center'>{para}</p>
@@ -59,7 +59,7 @@ const Waitlist = () => {
                 <Image
                     src={bgImg}
                     alt='background image'
-                    className='w-full h-full opacity-30'
+                    className='w-full h-full opacity-30 object-cover object-center'
                 />
             </div>
         </section>

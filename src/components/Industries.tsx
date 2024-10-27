@@ -53,7 +53,7 @@ const Industries = () => {
                     {"// "}
                     {sectionName}
                 </span>
-                <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk-medium break-words text-gradient'>
+                <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk break-words text-gradient'>
                     {sectionTitle}
                 </h2>
             </div>

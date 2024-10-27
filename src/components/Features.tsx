@@ -48,7 +48,7 @@ const Features = () => {
                     {"// "}
                     {sectionName}
                 </span>
-                <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk-medium break-words text-gradient'>
+                <h2 className='cabinet-grotesk w-full md:w-[50%] text-[3rem] leading-[3.1rem] break-words text-gradient'>
                     {sectionTitle}
                 </h2>
                 <div className='w-full flex flex-col justify-start items-start space-y-[40px]'>
