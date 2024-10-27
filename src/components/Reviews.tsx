@@ -1,14 +1,9 @@
 import React from "react";
 import { Space_Mono } from "next/font/google";
-import { IoIosArrowForward } from "react-icons/io";
-import featureImage_01 from "../../public/images/feature_img_01.png";
-import featureImage_02 from "../../public/images/feature_img_02.png";
-import featureImage_03 from "../../public/images/feature_img_03.png";
 import Image from "next/image";
-import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import r_com_icon from "../../public/images/r_company_icon.png"
-import bgImg from '../../public/images/review_img_bg.png'
+import r_com_icon from "../../public/images/r_company_icon.png";
+import bgImg from "../../public/images/review_img_bg.png";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -48,7 +43,11 @@ const Reviews = () => {
                         <span className='text-[rgba(255,255,255,0.7)]'>{`People who love us over the world`}</span>
                     </div>
                     <div className='w-full md:h-[300px] bg-transparent rounded-b-lg'>
-                        <Image src={bgImg} alt='world-map' className="w-full object-contain object-bottom"/>
+                        <Image
+                            src={bgImg}
+                            alt='world-map'
+                            className='w-full object-contain object-bottom'
+                        />
                     </div>
                 </div>
                 <div className='mt-[50px] md:mt-0 h-full w-full md:w-[50%] flex flex-col justify-start items-start space-y-[40px]'>
@@ -71,18 +70,22 @@ const Reviews = () => {
                             </div>
                             <div className='flex flex-row justify-between items-center space-x-2'>
                                 <button className='flex justify-center items-center rounded-full h-[40px] w-[40px] border-2 border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.4)] hover:border-[rgba(255,255,255,0.4)]'>
-                                    <FaArrowLeft size={18}/>
+                                    <FaArrowLeft size={18} />
                                 </button>
                                 <button className='flex justify-center items-center rounded-full h-[40px] w-[40px] border-2 border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.4)] hover:border-[rgba(255,255,255,0.4)]'>
-                                    <FaArrowRight size={18}/>
+                                    <FaArrowRight size={18} />
                                 </button>
                             </div>
                         </div>
-                        <div className="w-full h-[50px]">
-                            <Image src={r_com_icon} alt="orbital icon" className="h-full object-contain object-left"/>
+                        <div className='w-full h-[50px]'>
+                            <Image
+                                src={r_com_icon}
+                                alt='orbital icon'
+                                className='h-full object-contain object-left'
+                            />
                         </div>
-                        <ul className="w-full flex flex-row justify-start items-center flex-wrap space-x-2">
-                            <li className="py-2 px-5 cabinet-grotesk bg-[rgba(33,34,39,1)] rounded-full text-[rgba(255,255,255,0.5)] text-[12px]">
+                        <ul className='w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
+                            <li className='py-2 px-5 cabinet-grotesk bg-[rgba(33,34,39,1)] rounded-full text-[rgba(255,255,255,0.5)] text-[12px]'>
                                 <span>Multiple sectors</span>
                             </li>
                         </ul>
