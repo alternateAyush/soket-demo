@@ -3,6 +3,13 @@ import React from "react";
 import { Space_Mono } from "next/font/google";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -40,7 +47,7 @@ const demoVideostList = [
 
 const DemoVideos = () => {
     const handleClick = function (btn: string) {
-        console.log(btn,"clicked");
+        console.log(btn, "clicked");
     };
     return (
         <section
@@ -79,7 +86,7 @@ const DemoVideos = () => {
                     </div>
                 </div>
             </div>
-            <div className='relative mt-[50px] w-full md:w-[1150px] mx-auto px-[20px] md:px-0 overflow-hidden'>
+            {/* <div className='relative mt-[50px] w-full md:w-[1150px] mx-auto px-[20px] md:px-0 overflow-hidden'>
                 <div className='h-full w-[50px] absolute z-10 top-0 left-0 blurr-border-2'></div>
                 <ul
                     className={`w-full flex flex-row justify-start items-stretch flex-nowrap space-x-6`}
@@ -110,7 +117,42 @@ const DemoVideos = () => {
                     })}
                 </ul>
                 <div className='h-full w-[50px] absolute top-0 right-0 blurr-border-3'></div>
-            </div>
+            </div> */}
+            <Carousel className='relative mt-[50px] w-full md:w-[1150px] mx-auto'>
+                <CarouselContent className={`w-full`}>
+                    {demoVideostList.map((demo, index) => {
+                        return (
+                            <CarouselItem
+                                key={index}
+                                className='basis-[100%] md:basis-[38%] mx-[10px] md:mx-0'
+                            >
+                                <Link
+                                    href={demo.videoUrl}
+                                    className={`flex flex-col justify-start items-start space-y-6 w-[400px] overflow-hidden`}
+                                >
+                                    <div className='bg-black h-[300px] w-full rounded-lg relative flex justify-center items-center'>
+                                        <span className='text-white'>
+                                            ...Coming Soon
+                                        </span>
+                                    </div>
+                                    <div className='w-[80%] flex flex-col justify-start items-start space-y-4'>
+                                        <h3 className='cabinet-grotesk-medium w-full block text-[1.3rem] leading-[1.5rem] text-black truncate overflow-hidden whitespace-nowrap'>
+                                            {demo.title}
+                                        </h3>
+                                        <span className='cabinet-grotesk-bold text-[16px] text-[rgba(0,0,0,0.5)]'>
+                                            {demo.description}
+                                        </span>
+                                    </div>
+                                </Link>
+                            </CarouselItem>
+                        );
+                    })}
+                </CarouselContent>
+                <CarouselPrevious className='text-black' />
+                <CarouselNext className='text-black' />
+                <div className='h-full w-[50px] absolute z-10 top-0 left-0 blurr-border-2'></div>
+                <div className='h-full w-[50px] absolute top-0 right-0 blurr-border-3'></div>
+            </Carousel>
         </section>
     );
 };
