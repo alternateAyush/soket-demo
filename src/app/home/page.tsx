@@ -6,6 +6,7 @@ import Industries from "@/components/Industries"
 import Footer from "@/components/Footer"
 import Waitlist from "@/components/Waitlist"
 import Reviews from "@/components/Reviews"
+import DemoVideos from "@/components/DemoVideos"
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <Features/>
       <APIDemo/>
       <Industries/>
+      <DemoVideos/>
       <Reviews/>
       <Waitlist/>
       <Footer/>

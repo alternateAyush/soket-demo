@@ -100,15 +100,17 @@ const Footer = () => {
                         <ul className='flex flex-col justify-start items-start space-y-3'>
                             {soketLabList.map((item, index) => {
                                 return (
-                                    <Link
-                                        key={index}
-                                        href={item.url}
-                                        className='text-[rgba(255,255,255,0.5)] hover:text-white'
-                                    >
-                                        <span className='text-[14px]'>
-                                            {item.title}
-                                        </span>
-                                    </Link>
+                                    <li key={index}>
+                                        <Link
+                                            
+                                            href={item.url}
+                                            className='text-[rgba(255,255,255,0.5)] hover:text-white'
+                                        >
+                                            <span className='text-[14px]'>
+                                                {item.title}
+                                            </span>
+                                        </Link>
+                                    </li>
                                 );
                             })}
                         </ul>
