@@ -150,8 +150,8 @@ const DemoVideos = () => {
                 </CarouselContent>
                 <CarouselPrevious className='text-black' />
                 <CarouselNext className='text-black' />
-                <div className='h-full w-[50px] absolute z-10 top-0 left-0 blurr-border-2'></div>
-                <div className='h-full w-[50px] absolute top-0 right-0 blurr-border-3'></div>
+                <div className='h-full w-[10px] md:w-[30px]  absolute z-10 top-0 left-0 blurr-border-2'></div>
+                <div className='h-full w-[10px] md:w-[30px] absolute top-0 right-0 blurr-border-3'></div>
             </Carousel>
         </section>
     );
