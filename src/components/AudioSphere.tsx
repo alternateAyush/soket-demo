@@ -392,7 +392,7 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
                 context_history: history,
             };
             const response = await axios.post(
-                "https://api.soket.ai/v1/s2s",
+                `${process.env.NEXT_PUBLIC_API_URL}`,
                 jsonData,
                 {
                     headers: {
