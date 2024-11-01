@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import bgImg from "../../public/images/bg_01.png";
 import Image from "next/image";
 import { Space_Mono } from "next/font/google";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
+import axios,{AxiosError} from "axios";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -25,8 +26,30 @@ const titleAbout =
 
 const totalWaitlist = 234;
 const Introduction = () => {
+    const [count, setCount] = useState(totalWaitlist);
+    useEffect(() => {
+        const getTotalCount = async function () {
+            try {
+                const response = await axios.get(
+                    "/api/waitlist/personList/total"
+                );
+                setCount(response.data.totalCount);
+            } catch (error: unknown) {
+                const errorMessage =
+                    error instanceof AxiosError
+                        ? error.response.data.error
+                        : "An unknown error occurred";
+    
+                console.log("totalCount error: ", errorMessage);                
+            }
+        };
+        getTotalCount();
+    }, []);
     return (
-        <section id='about' className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
+        <section
+            id='about'
+            className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
+        >
             <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
                 <div className='flex flex-col justify-start items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
                     <ul
@@ -63,7 +86,7 @@ const Introduction = () => {
                         <div className='flex flex-row justify-start items-center space-x-2'>
                             <div className='bg-green-400 rounded-full w-[8px] h-[8px]'></div>
                             <span className='text-white text-[12px]'>
-                                {totalWaitlist} people already signed up
+                                {count} people already signed up
                             </span>
                         </div>
                     </div>

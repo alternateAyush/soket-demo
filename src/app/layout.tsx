@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+
 
 export const metadata: Metadata = {
     title: "soketlabs",
@@ -14,7 +16,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={`antialiased`}>{children}</body>
+            <body className={`antialiased`}>
+                {children}
+                <Toaster/>
+            </body>
         </html>
     );
 }

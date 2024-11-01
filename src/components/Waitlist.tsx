@@ -1,9 +1,11 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Space_Mono } from "next/font/google";
 import Image from "next/image";
 import bgImg from "../../public/images/bg_02.png";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
+import axios, { AxiosError } from "axios";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -17,6 +19,25 @@ const para =
 const totalWaitlist = 234;
 
 const Waitlist = () => {
+    const [count, setCount] = useState(totalWaitlist);
+    useEffect(() => {
+        const getTotalCount = async function () {
+            try {
+                const response = await axios.get(
+                    "/api/waitlist/personList/total"
+                );
+                setCount(response.data.totalCount);
+            } catch (error: unknown) {
+                const errorMessage =
+                    error instanceof AxiosError
+                        ? error.response.data.error
+                        : "An unknown error occurred";
+
+                console.log("totalCount error: ", errorMessage);
+            }
+        };
+        getTotalCount();
+    }, []);
     return (
         <section
             id={sectionName}
@@ -48,7 +69,7 @@ const Waitlist = () => {
                         <div className='flex flex-row justify-start items-center space-x-2'>
                             <div className='bg-green-400 rounded-full w-[8px] h-[8px]'></div>
                             <span className='text-black text-[12px]'>
-                                {totalWaitlist} people already signed up
+                                {count} people already signed up
                             </span>
                         </div>
                     </div>
