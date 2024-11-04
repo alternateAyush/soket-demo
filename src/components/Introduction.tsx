@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Space_Mono } from "next/font/google";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
-import axios,{AxiosError} from "axios";
+import axios, { AxiosError } from "axios";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -39,19 +39,19 @@ const Introduction = () => {
                     error instanceof AxiosError
                         ? error.response.data.error
                         : "An unknown error occurred";
-    
-                console.log("totalCount error: ", errorMessage);                
+
+                console.log("totalCount error: ", errorMessage);
             }
         };
         getTotalCount();
     }, []);
     return (
         <section
-            id='about'
+            id='introduction'
             className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
         >
             <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
-                <div className='flex flex-col justify-start items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
+                <div className='flex flex-col justify-start items-center md:items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
                     <ul
                         className={`${spaceMono.className} flex flex-row flex-wrap justify-start items-center w-full`}
                     >
@@ -66,26 +66,28 @@ const Introduction = () => {
                             );
                         })}
                     </ul>
-                    <h1 className='w-full cabinet-grotesk-medium text-[4rem] leading-[4.1rem] break-words text-gradient'>
+                    <h1 className='w-full text-center md:text-left cabinet-grotesk-medium text-[3.5rem] leading-[3.7rem] md:text-[4rem] md:leading-[4.1rem] break-words text-gradient'>
                         {titleText}
                     </h1>
-                    <p className='text-[rgba(255,255,255,0.6)] text-left cabinet-grotesk-medium text-[1.1rem] w-full'>
+                    <p className='w-full text-[rgba(255,255,255,0.6)] text-center md:text-left cabinet-grotesk-medium text-[0.9rem] md:text-[1.1rem]'>
                         {titleAbout}
                     </p>
                     <div
-                        className={`${spaceMono.className} flex flex-col justify-start items-start space-y-[10px]`}
+                        className={`${spaceMono.className} w-full flex flex-col justify-start items-center md:items-start space-y-[10px]`}
                     >
                         <Link
                             href={"/home/waitlist"}
-                            className={` bg-white text-black flex flex-row justify-center items-center rounded-full border border-black hover:bg-black hover:text-white hover:border-white p-[10px] px-[40px] space-x-1`}
+                            className={` w-full md:w-auto bg-white text-black flex flex-row justify-center items-center rounded-full border border-black hover:bg-black hover:text-white hover:border-white p-[10px] px-[40px] space-x-1`}
                         >
-                            <span>Join the Waitlist</span>
+                            <span className='text-[18px]'>
+                                Join the Waitlist
+                            </span>
                             <IoIosArrowForward />
                         </Link>
 
                         <div className='flex flex-row justify-start items-center space-x-2'>
                             <div className='bg-green-400 rounded-full w-[8px] h-[8px]'></div>
-                            <span className='text-white text-[12px]'>
+                            <span className='text-white text-[12px] text-center'>
                                 {count} people already signed up
                             </span>
                         </div>

@@ -14,7 +14,7 @@ const linkList = [
 ];
 const infoList = [
     { title: "Features", url: "/home#features" },
-    { title: "Demos", url: "/home/demo" },
+    { title: "Demos", url: "/demo/s2s" },
     { title: "Industries", url: "/home#industries" },
     { title: "Workflows", url: "/home#footer" },
 ];
@@ -58,9 +58,10 @@ const Footer = () => {
                         className='w-full h-auto object-contain object-left'
                     />
                 </div>
-                <div className='flex flex-row w-full md:w-1/2 justify-between md:justify-start md:space-x-[120px] items-start flex-wrap'>
+                {/* <div className='flex flex-row w-full md:w-1/2 justify-between md:justify-start md:space-x-[120px] items-start flex-wrap'> */}
+                <div className='w-full md:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-y-6 md:gap-y-0'>
                     <div className='flex flex-col justify-start items-start space-y-6'>
-                        <h4 className='uppercase text-[14px]'>{`links`}</h4>
+                        <h4 className='uppercase text-[16px] text-gradient-2'>{`links`}</h4>
                         <ul className='flex flex-col justify-start items-start space-y-3'>
                             {linkList.map((link, index) => {
                                 return (
@@ -78,7 +79,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className='flex flex-col justify-start items-start space-y-6'>
-                        <h4 className='uppercase text-[14px]'>{`info`}</h4>
+                        <h4 className='uppercase text-[16px] text-gradient-2'>{`info`}</h4>
                         <ul className='flex flex-col justify-start items-start space-y-3'>
                             {infoList.map((info, index) => {
                                 return (
@@ -96,13 +97,12 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className='flex flex-col justify-start items-start space-y-6'>
-                        <h4 className='uppercase text-[14px]'>{`soket labs`}</h4>
+                        <h4 className='uppercase text-[16px] text-gradient-2'>{`soket labs`}</h4>
                         <ul className='flex flex-col justify-start items-start space-y-3'>
                             {soketLabList.map((item, index) => {
                                 return (
                                     <li key={index}>
                                         <Link
-                                            
                                             href={item.url}
                                             className='text-[rgba(255,255,255,0.5)] hover:text-white'
                                         >
@@ -117,7 +117,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-[150px] pt-[30px] pb-[70px] border-t border-[rgba(212,218,255,0.15)] w-full'>
+            <div className='mt-[100px] md:mt-[150px] pt-[30px] pb-[70px] border-t border-[rgba(212,218,255,0.15)] w-full'>
                 <div className='px-[20px] md:px-0 mx-auto w-full md:w-[1150px] flex flex-col space-y-6 md:space-y-0  md:flex-row justify-between items-center'>
                     <div className='flex flex-row justify-start items-center space-x-6 text-[14px] text-[rgba(255,255,255,0.7)]'>
                         <Link href='home#footer' className='hover:text-white'>

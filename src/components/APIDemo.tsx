@@ -43,7 +43,7 @@ const APIDemo = () => {
                 </h2>
                 <div className='h-auto relative'>
                     <ul
-                        className={`${spaceMono.className} z-0 text-[14px] flex flex-row justify-start items-center flex-wrap`}
+                        className={`${spaceMono.className} p-0 z-0 text-[14px] flex flex-row justify-start items-center flex-wrap overflow-y-hidden`}
                     >
                         {instructionList.map((instruction, index) => {
                             return (
@@ -53,24 +53,25 @@ const APIDemo = () => {
                                         index + 1 === instructionList.length
                                             ? `mr-0`
                                             : `mr-4`
-                                    } my-1 bg-white tracking-wider p-1 px-[20px] border-[1.5px] border-dashed rounded-full border-black hover:bg-[rgba(217,217,217,1)] hover:border-solid`}
+                                    } bg-white mb-4 md:mb-0 tracking-wider p-1 px-[20px] border-[1.5px] border-dashed rounded-full border-black hover:bg-[rgba(217,217,217,1)] hover:border-solid`}
                                 >
                                     {instruction.title}
                                 </li>
                             );
                         })}
                         <div className='-z-10 w-full hidden md:inline absolute top-1/2 left-0 border-[1.5px] border-dashed border-black'></div>
+                        <div className='-z-10 h-[80%] absolute top-0 left-5 border-[1.5px] border-dashed border-black'></div>
                     </ul>
                 </div>
                 <div className='w-full h-auto py-[30px] px-[10px] md:p-[30px] bg-[rgba(250,250,250,1)] border border-[rgba(0,0,0,0.3)] rounded-xl'>
-                    <div className='mx-auto md:mx-0 w-3/4  md:w-full h-auto md:h-[40px] flex flex-col md:flex-row justify-center md:justify-between items-stretch space-y-4 md:space-y-0'>
+                    <div className='mx-auto md:mx-0 w-full h-auto md:h-[40px] flex flex-col md:flex-row justify-center md:justify-between items-stretch space-y-4 md:space-y-0'>
                         <div className='py-2 md:py-0 px-[20px] flex justify-center items-center space-x-1 flex-nowrap bg-white text-[rgba(0,0,0,0.3)] rounded-full border border-[rgba(0,0,0,0.3)] shadow-md hover:text-[rgba(0,0,0,1)] hover:border-[rgba(0,0,0,1)]'>
                             <span className='text-[14px]'>
                                 Speech to Speech
                             </span>
                             <IoIosArrowDown size={16} />
                         </div>
-                        <div className='py-2 md:py-0 rounded-lg px-1 bg-white flex flex-row flex-nowrap justify-center items-center space-x-2 text-[rgba(0,0,0,0.3)] text-[12px] hover:text-black'>
+                        <div className='py-2 md:py-0 rounded-lg px-1 bg-white flex flex-row flex-nowrap justify-between md:justify-center items-center space-x-2 text-[rgba(0,0,0,0.3)] text-[12px] hover:text-black'>
                             <div className='bg-[rgba(246,246,246,1)] border border-[rgba(0,0,0,0.3)] p-1 px-[20px] rounded-lg flex flex-row flex-nowrap justify-center items-center space-x-1 shadow-sm hover:bg-white hover:border-black'>
                                 <span>English</span>
                                 <IoIosArrowDown size={14} />
@@ -82,7 +83,7 @@ const APIDemo = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='mt-[75px] flex flex-row justify-end items-center w-full flex-nowrap'>
+                    <div className='mt-[125px] flex flex-row justify-end items-center w-full flex-nowrap'>
                         <div className='py-[15px] px-[30px] rounded-full text-[16px] bg-[rgba(217,217,217,0.5)] text-[rgba(0,0,0,1)]'>
                             <span>{`Hello, how are you?`}</span>
                         </div>
@@ -106,7 +107,7 @@ const APIDemo = () => {
                     <div className='mt-[30px] flex flex-row justify-between items-center w-full flex-nowrap space-x-1 md:space-x-4'>
                         <div className='flex flex-row justify-between items-center w-full rounded-full bg-white overflow-hidden border border-[rgba(0,0,0,0.1)]'>
                             <input
-                                className={`${spaceMono.className} w-full h-full p-[10px] md:pl-[30px] pr-[10px] outline-none text-[14px] word-spacing`}
+                                className={`${spaceMono.className} w-full h-full p-[10px] md:pl-[30px] pr-[10px] outline-none text-[12px] md:text-[14px] md:word-spacing overflow-hidden text-ellipsis`}
                                 placeholder={inputPlaceholder}
                             />
                             <button className='flex flex-row justify-center items-center flex-nowrap space-x-2 button-gradient px-[8px] md:px-[30px] py-[10px] rounded-full text-[16px] text-white'>

@@ -6,6 +6,13 @@ import industryImage_02 from "../../public/images/industry_img_02.png";
 import industryImage_03 from "../../public/images/industry_img_03.png";
 import Image from "next/image";
 import Link from "next/link";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -91,12 +98,12 @@ const Industries = () => {
                     <div className='bg-white rounded-full h-[8px] w-[8px]'></div>
                     <span className='text-[rgba(255,255,255,0.7)] text-[18px]'>{`Used accross wide range of Industries:`}</span>
                 </div>
-                <ul className='w-full flex flex-col md:flex-row justify-between items-stretch md:items-start space-y-4 md:space-y-0 md:space-x-4'>
+                <ul className='w-full hidden md:flex flex-col md:flex-row justify-between items-stretch md:items-start space-y-4 md:space-y-0 md:space-x-4'>
                     {industryTagList.map((industry, index) => {
                         return (
                             <li
                                 key={index}
-                                className='text-[1.2rem] py-[20px] px-[30px] tag-gradient rounded-xl text-center'
+                                className='text-[1.2rem] py-[20px] px-[30px] tag-gradient rounded-lg text-center'
                             >
                                 <span className='break-keep'>
                                     {industry.title}
@@ -106,6 +113,21 @@ const Industries = () => {
                     })}
                 </ul>
             </div>
+            <Carousel className='md:hidden relative mt-[50px] w-full'>
+                <CarouselContent className={`w-full`}>
+                    {industryTagList.map((industry, index) => {
+                        return (
+                            <CarouselItem key={index} className='basis-[60%]'>
+                                <div className='w-auto mx-[10px] md:mx-0 text-[1.2rem] py-[20px] tag-gradient rounded-lg text-center text-nowrap overflow-hidden'>
+                                    <span className='break-keep'>
+                                        {industry.title}
+                                    </span>
+                                </div>
+                            </CarouselItem>
+                        );
+                    })}
+                </CarouselContent>
+            </Carousel>
             <div className='-z-[40] w-full h-[150px] bg-custom-gradient-2 opacity-70'></div>
         </section>
     );

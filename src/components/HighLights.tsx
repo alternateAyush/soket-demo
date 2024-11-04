@@ -1,9 +1,16 @@
 import React from "react";
 import { Space_Mono } from "next/font/google";
 import Image from "next/image";
-import hightlight_01 from "../../public/images/highlight_01.png"
-import hightlight_02 from "../../public/images/highlight_02.png"
-import hightlight_03 from "../../public/images/highlight_03.png"
+import hightlight_01 from "../../public/images/highlight_01.png";
+import hightlight_02 from "../../public/images/highlight_02.png";
+import hightlight_03 from "../../public/images/highlight_03.png";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -33,7 +40,7 @@ const highlightList = [
 
 const HighLights = () => {
     return (
-        <section className='pt-[70px] md:pt-[100px] pb-[120px] md:pb-0 mt-[-20px] relative rounded-t-3xl text-black z-0 bg-white w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
+        <section className='pt-[70px] md:pt-[100px] pb-0 mt-[-20px] relative rounded-t-3xl text-black z-0 bg-white w-[100vw] h-auto min-h-[100vh] overflow-hidden'>
             <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
                     className={`${spaceMono.className} uppercase text-black text-[10px] tracking-[2px]`}
@@ -45,7 +52,7 @@ const HighLights = () => {
                     {sectionTitle}
                 </h2>
             </div>
-            <div className='w-[100vw] mt-[40px] border-t border-[rgba(0,0,0,0.3)] cabinet-grotesk-medium'>
+            <div className='hidden md:block w-[100vw] mt-[40px] border-t border-[rgba(0,0,0,0.3)] cabinet-grotesk-medium'>
                 <div className='w-full md:w-[1150px] mx-auto grid grid-cols-1 md:grid-cols-3'>
                     {highlightList.map((highlight, index) => {
                         return (
@@ -80,6 +87,41 @@ const HighLights = () => {
                     })}
                 </div>
             </div>
+            <Carousel className='md:hidden relative w-full mt-[40px] border-t border-[rgba(0,0,0,0.3)] cabinet-grotesk-medium'>
+                <CarouselContent className={`w-full`}>
+                    {highlightList.map((highlight, index) => {
+                        return (
+                            <CarouselItem
+                                key={index}
+                                className={`${
+                                    (index + 1) % 3 == 0
+                                        ? `border-transparent`
+                                        : `border-[rgba(0,0,0,0.3)]`
+                                } basis-[90%] border-r flex flex-col justify-start items-start space-y-4 p-[20px] pb-[120px]`}
+                            >
+                                <span className='w-full text-right text-[20px] text-[rgba(0,0,0,0.4)]'>
+                                    0{index + 1}
+                                </span>
+                                <div className='h-[350px] flex flex-row justify-center items-center mx-auto relative overflow-hidden'>
+                                    <Image
+                                        className='h-full w-auto object-contain object-center'
+                                        src={highlight.imgPath}
+                                        alt={highlight.title}
+                                    />
+                                </div>
+                                <div className='w-full flex flex-col justify-start items-start space-y-3'>
+                                    <h3 className='w-full text-black text-[1.8rem]'>
+                                        {highlight.title}
+                                    </h3>
+                                    <p className='w-full text-[18px] text-[rgba(0,0,0,0.4)]'>
+                                        {highlight.para}
+                                    </p>
+                                </div>
+                            </CarouselItem>
+                        );
+                    })}
+                </CarouselContent>
+            </Carousel>
         </section>
     );
 };

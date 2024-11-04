@@ -62,13 +62,13 @@ const Reviews = () => {
                         <span className='cabinet-grotesk-bold text-white'>{`tellus scelerisque fringilla.`}</span>
                     </p>
                     <div className='w-full border border-[rgba(255,255,255,0.1)]'></div>
-                    <div className='w-full flex flex-col justify-start items-start space-y-2'>
+                    <div className='w-3/4 md:w-full flex flex-col justify-start items-start space-y-2'>
                         <div className='w-full flex flex-row justify-between items-start'>
                             <div className='flex flex-col justify-start items-start space-y-2 flex-wrap'>
                                 <h6 className='cabinet-grotesk-bold text-[1rem]'>{`Savannah Nguyen`}</h6>
                                 <span className='text-[rgba(255,255,255,0.6)] text-[14px] break-words'>{`Co-founder, Asfera Technologies Private Limited`}</span>
                             </div>
-                            <div className='flex flex-row justify-between items-center space-x-2'>
+                            <div className='hidden md:flex flex-row justify-between items-center space-x-2'>
                                 <button className='flex justify-center items-center rounded-full h-[40px] w-[40px] border-2 border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.4)] hover:border-[rgba(255,255,255,0.4)]'>
                                     <FaArrowLeft size={18} />
                                 </button>
@@ -89,6 +89,14 @@ const Reviews = () => {
                                 <span>Multiple sectors</span>
                             </li>
                         </ul>
+                        <div className='py-[20px] flex md:hidden flex-row justify-between items-center space-x-4'>
+                            <button className='flex justify-center items-center rounded-full h-[50px] w-[50px] border-2 border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.4)] hover:border-[rgba(255,255,255,0.4)]'>
+                                <FaArrowLeft size={20} />
+                            </button>
+                            <button className='flex justify-center items-center rounded-full h-[50px] w-[50px] border-2 border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.4)] hover:border-[rgba(255,255,255,0.4)]'>
+                                <FaArrowRight size={20} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -65,7 +65,7 @@ const DemoVideos = () => {
                     <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk break-words'>
                         {sectionTitle}
                     </h2>
-                    <div className='flex flex-row justify-between items-center space-x-6 flex-nowrap'>
+                    <div className='hidden md:flex flex-row justify-between items-center space-x-6 flex-nowrap'>
                         <button
                             onClick={() => {
                                 handleClick("left");
@@ -150,9 +150,28 @@ const DemoVideos = () => {
                 </CarouselContent>
                 <CarouselPrevious className='text-black' />
                 <CarouselNext className='text-black' />
-                <div className='h-full w-[10px] md:w-[30px]  absolute z-10 top-0 left-0 blurr-border-2'></div>
-                <div className='h-full w-[10px] md:w-[30px] absolute top-0 right-0 blurr-border-3'></div>
+                {/* <div className='h-full w-[10px] md:w-[30px]  absolute z-10 top-0 left-0 blurr-border-2'></div> */}
+                {/* <div className='h-full w-[10px] md:w-[30px] absolute top-0 right-0 blurr-border-3'></div> */}
             </Carousel>
+            <div className='px-[20px] mt-[50px] flex md:hidden flex-row justify-between items-center space-x-6 flex-nowrap'>
+                <button
+                    onClick={() => {
+                        handleClick("left");
+                    }}
+                    className='h-[90px] w-[90px] rounded-full flex justify-center items-center border border-black text-black opacity-25 hover:opacity-100'
+                >
+                    <BsArrowLeft size={30} />
+                </button>
+                <button
+                    onClick={() => {
+                        handleClick("right");
+                    }}
+                    id='right'
+                    className='h-[90px] w-[90px]  rounded-full flex justify-center items-center border border-black text-black opacity-25 hover:opacity-100'
+                >
+                    <BsArrowRight size={30} />
+                </button>
+            </div>
         </section>
     );
 };

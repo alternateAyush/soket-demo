@@ -57,6 +57,12 @@ body {
     background-clip: text;
     color: transparent;
 }
+.text-gradient-2{
+    background-image: linear-gradient(78.09deg, #FFFFFF 0%, #C3DEFF 100%);
+    background-clip: text;
+    color: transparent;
+
+}
 .blurr-border {
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.8);
 }
