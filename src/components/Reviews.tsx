@@ -27,7 +27,7 @@ const Reviews = () => {
         >
             <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
-                    className={`${spaceMono.className} uppercase text-[10px] tracking-[2px]`}
+                    className={`${spaceMono.className} uppercase text-[10px] tracking-[2px] text-nowrap`}
                 >
                     {"// "}
                     {`features`}

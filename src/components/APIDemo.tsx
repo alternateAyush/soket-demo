@@ -53,7 +53,7 @@ const APIDemo = () => {
                                         index + 1 === instructionList.length
                                             ? `mr-0`
                                             : `mr-4`
-                                    } bg-white mb-4 md:mb-0 tracking-wider p-1 px-[20px] border-[1.5px] border-dashed rounded-full border-black hover:bg-[rgba(217,217,217,1)] hover:border-solid`}
+                                    } bg-white mb-4 md:mb-0 tracking-wider p-1 px-[20px] border-[1.5px] border-dashed rounded-full border-black hover:bg-[rgba(217,217,217,1)] hover:border-solid text-nowrap`}
                                 >
                                     {instruction.title}
                                 </li>
