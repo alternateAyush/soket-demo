@@ -5,7 +5,7 @@ import { Space_Mono } from "next/font/google";
 import iconImage from "../../public/images/icon_01.png";
 import Image from "next/image";
 import { IoIosArrowForward, IoIosMenu } from "react-icons/io";
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+// import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
 const spaceMono = Space_Mono({
