@@ -43,7 +43,7 @@ const APIDemo = () => {
                 </h2>
                 <div className='h-auto relative'>
                     <ul
-                        className={`${spaceMono.className} p-0 z-0 text-[14px] flex flex-row justify-start items-center flex-wrap overflow-y-hidden`}
+                        className={`${spaceMono.className} p-0 z-0 text-[14px] flex flex-col  md:flex-row justify-start items-start md:items-center flex-wrap overflow-y-hidden`}
                     >
                         {instructionList.map((instruction, index) => {
                             return (

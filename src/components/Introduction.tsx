@@ -53,7 +53,7 @@ const Introduction = () => {
             <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
                 <div className='flex flex-col justify-start items-center md:items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
                     <ul
-                        className={`${spaceMono.className} flex flex-row flex-wrap justify-start items-center w-full`}
+                        className={`${spaceMono.className} flex flex-row flex-wrap justify-center md:justify-start items-center w-full`}
                     >
                         {tagList.map((tag, index) => {
                             return (
