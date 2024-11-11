@@ -46,7 +46,7 @@ const Waitlist = () => {
             <div className='cabinet-grotesk-medium mb-[50px] px-[20px] md:px-0 w-full md:w-[1150px] mx-auto'>
                 <div className='w-full mx-auto md:w-[60%] flex flex-col justify-start items-center space-y-[30px]'>
                     <span
-                        className={`${spaceMono.className} uppercase text-[10px] tracking-[2px]`}
+                        className={`${spaceMono.className} uppercase text-[10px] tracking-[2px] text-nowrap`}
                     >
                         {"// "}
                         {sectionName}

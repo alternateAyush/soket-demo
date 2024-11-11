@@ -15,7 +15,7 @@ body {
     overflow-x: hidden;
 }
 
-.bg-custom-gradient {
+/* .bg-custom-gradient {
     background-image: linear-gradient(
         -70deg,
         rgba(142, 177, 242, 0.7),
@@ -27,6 +27,20 @@ body {
         rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 0.9),
         rgba(0, 0, 0, 1)
+    );
+} */
+.bg-custom-gradient {
+    background-image: linear-gradient(
+        -150deg,
+        rgba(142, 177, 242, 1),
+        /* rgba(106, 132, 181, 0.7),
+        rgba(71, 89, 121, 0.7),
+        rgba(36, 45, 61, 0.7),
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.9), */
+            rgba(0, 0, 0, 1) 30%
     );
 }
 .bg-custom-gradient-2 {
@@ -57,11 +71,10 @@ body {
     background-clip: text;
     color: transparent;
 }
-.text-gradient-2{
-    background-image: linear-gradient(78.09deg, #FFFFFF 0%, #C3DEFF 100%);
+.text-gradient-2 {
+    background-image: linear-gradient(78.09deg, #ffffff 0%, #c3deff 100%);
     background-clip: text;
     color: transparent;
-
 }
 .blurr-border {
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.8);
@@ -100,6 +113,62 @@ body {
         rgba(71, 89, 121, 0.5) 150%
     );
 }
+/* -- voice agent css start -- */
+.agent-container {
+    opacity: 0px;
+    background: rgba(64, 64, 64, 0.19);
+    box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.31) inset;
+    border-image-source: linear-gradient(180deg, #878787 -1.52%, #3c3c3c 100%);
+}
+.agent-tag {
+    background: linear-gradient(
+        184.44deg,
+        rgba(255, 255, 255, 0.3) -105.77%,
+        rgba(255, 255, 255, 0) 134.8%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.agent-canvas-container {
+    background-image: linear-gradient(
+        0deg,
+        rgba(71, 89, 121, 0.7),
+        rgba(1, 1, 1, 1) 20%
+    );
+    backdrop-filter: blur(76.30000305175781px);
+}
+.agent-button-container {
+    backdrop-filter: blur(76.30000305175781px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid;
+    /* border-image-source: linear-gradient(0deg, #000000, #000000); */
+    border-image-source: linear-gradient(
+        178.48deg,
+        #1c6dff -40.78%,
+        #00ffe1 157.66%,
+        #000000
+    );
+    box-shadow: 0px 0px 19.4px 0px rgba(14, 180, 240, 1);
+    box-shadow: 0px 5px 13.9px 0px rgba(4, 168, 163, 1) inset;
+    box-shadow: 0px -3px 13.9px 0px rgba(90, 172, 255, 1) inset;
+}
+
+.agent-button {
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.08)
+        ),
+        linear-gradient(178.48deg, #1c6dff -40.78%, #00ffe1 157.66%);
+    box-shadow: 0px 0px 19.4px 0px rgba(14, 180, 240, 1);
+
+    box-shadow: 0px 5px 13.9px 0px rgba(4, 168, 163, 1) inset;
+
+    box-shadow: 0px -3px 13.9px 0px rgba(90, 172, 255, 1) inset;
+
+    box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.63) inset;
+}
+/* -- voice agent css end --  */
+
 /* Custom Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;

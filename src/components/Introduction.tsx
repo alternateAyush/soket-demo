@@ -6,6 +6,7 @@ import { Space_Mono } from "next/font/google";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import axios, { AxiosError } from "axios";
+import VoiceAgent from "./VoiceAgent";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -50,8 +51,9 @@ const Introduction = () => {
             id='introduction'
             className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
         >
-            <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-start items-center'>
+            <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-between items-center'>
                 <div className='flex flex-col justify-start items-center md:items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
+                    <VoiceAgent styles='w-full flex md:hidden' />
                     <ul
                         className={`${spaceMono.className} flex flex-row flex-wrap justify-center md:justify-start items-center w-full`}
                     >
@@ -93,6 +95,7 @@ const Introduction = () => {
                         </div>
                     </div>
                 </div>
+                <VoiceAgent styles='hidden md:flex w-[428px]' />
             </div>
 
             <div className='-z-50 w-full h-full absolute top-0 left-0 bg-black bg-custom-gradient'>

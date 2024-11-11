@@ -256,7 +256,7 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
     const audioStreamRef = useRef<MediaStream | null>(null);
     const recordedChunksRef = useRef<Blob[]>([]);
     const movingAverageRef = useRef(0.0);
-    const [bloom, setBloom] = useState([0.7, 0.5, 0.5]);
+    const [bloom, setBloom] = useState([0.4, 0.5, 0.5]);
 
     async function setUpAudioRecording() {
         try {
@@ -519,7 +519,7 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
     }
     return (
         <div className={`${styles} flex flex-col justify-center items-center `}>
-            <div className='p-0 m-0 overflow-hidden flex flex-col w-full h-[90%] justify-center items-center'>
+            <div className='p-0 m-0 overflow-hidden flex flex-col w-full h-full justify-center items-center'>
                 <Canvas>
                     <Scene />
                     <EffectComposer>
@@ -535,7 +535,7 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
             <button
                 type='button'
                 onClick={handleClick}
-                className='rounded-full p-2 bg-red-500 text-white shadow-md shadow-red-300 active:shadow-none active:bg-red-400 disabled:bg-slate-300 disabled:text-slate-500 disabled:cursor-not-allowed disabled:shadow-none'
+                className='hidden rounded-full p-2 bg-red-500 text-white shadow-md shadow-red-300 active:shadow-none active:bg-red-400 disabled:bg-slate-300 disabled:text-slate-500 disabled:cursor-not-allowed disabled:shadow-none'
                 disabled={micDisable}
             >
                 {isRecording ? (
