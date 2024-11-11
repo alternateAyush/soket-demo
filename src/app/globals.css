@@ -115,7 +115,6 @@ body {
 }
 /* -- voice agent css start -- */
 .agent-container {
-    opacity: 0px;
     background: rgba(64, 64, 64, 0.19);
     box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.31) inset;
     border-image-source: linear-gradient(180deg, #878787 -1.52%, #3c3c3c 100%);
