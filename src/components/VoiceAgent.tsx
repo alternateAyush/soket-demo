@@ -7,7 +7,11 @@ const spaceMono = Space_Mono({
     weight: ["400"],
 });
 
-const VoiceAgent = ({ styles }) => {
+type VoiceAgentProps = {
+    styles?: string;
+};
+
+const VoiceAgent = ({ styles}:VoiceAgentProps) => {
     const position = new Vector3(0, 0, 0);
 
     return (
