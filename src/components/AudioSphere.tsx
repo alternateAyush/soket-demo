@@ -199,9 +199,12 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                     uniformRef.current.u_frequency.value =
                         movingAverageRef.current * 2050;
                     meshRef.current!.rotation.y -= 0.01;
-                    uniformRef.current.u_green.value = 0.6;
-                    uniformRef.current.u_blue.value = 0.4;
-                    uniformRef.current.u_red.value = 0.4;
+                    // uniformRef.current.u_green.value = 0.6;
+                    // uniformRef.current.u_blue.value = 0.4;
+                    // uniformRef.current.u_red.value = 0.4;
+                    uniformRef.current.u_green.value = 0.67;
+                    uniformRef.current.u_blue.value = 1;
+                    uniformRef.current.u_red.value = 0.35;
                 } else if (audioStateRef.current === "wait") {
                     uniformRef.current.u_frequency.value = 0.0;
                     meshRef.current!.position.z += zAxisRef.current;
@@ -211,17 +214,18 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                     ) {
                         zAxisRef.current *= -1;
                     }
-                    uniformRef.current.u_blue.value = 0.7;
-                    uniformRef.current.u_red.value = 0.4;
-                    uniformRef.current.u_green.value = 0.4;
+                    //rgb(136,171,214)
+                    uniformRef.current.u_blue.value = 1;
+                    uniformRef.current.u_red.value = 0.43;
+                    uniformRef.current.u_green.value = 0.67;
                 } else if (audioStateRef.current === "speak") {
                     meshRef.current!.position.z = 0;
                     uniformRef.current.u_frequency.value =
                         movingAverageRef.current * 2150;
                     meshRef.current!.rotation.y += 0.01;
-                    uniformRef.current.u_red.value = 0.9;
-                    uniformRef.current.u_blue.value = 0.3;
-                    uniformRef.current.u_green.value = 0.3;
+                    uniformRef.current.u_red.value = 0.7;
+                    uniformRef.current.u_blue.value = 0.7;
+                    uniformRef.current.u_green.value = 0.7;
                 }
             } else {
                 const x = state.pointer.x;
@@ -263,8 +267,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
     const audioStreamRef = useRef<MediaStream | null>(null);
     const recordedChunksRef = useRef<Blob[]>([]);
     const movingAverageRef = useRef(0.0);
-    const [bloom, setBloom] = useState([0.4, 0.5, 0.5]);
-    const [voiceAgent, setVoiceAgent] = useState("ideal");
+    const [bloom, setBloom] = useState([0.5, 0.5, 0.5]);
 
     async function setUpAudioRecording() {
         try {
@@ -284,7 +287,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                 setIsRecording(true);
                 audioStateRef.current = "listen";
                 animateRef.current = true;
-                setBloom([4, 0.2, 0.2]);
+                setBloom([3, 0.2, 0.2]);
                 recordedChunksRef.current = [];
             };
             mediaRecorderRef.current.ondataavailable = (event) => {
@@ -462,7 +465,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                 await audioContext.close();
                 audioStateRef.current = "none";
                 animateRef.current = false;
-                setBloom([1, 0.5, 0.5]);
+                setBloom([0.5, 0.5, 0.5]);
                 movingAverageRef.current = 0.0;
                 setMicDisable(false);
                 console.log("Audio ended.");
@@ -581,13 +584,11 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                 </span>
                 <button
                     className={`${
-                        audioStateRef.current == "none" ? (
-                            ""
-                        ) : audioStateRef.current == "wait" ? (
-                            "is-active is-waiting"
-                        ) : 
-                            "is-active"     
-                        
+                        audioStateRef.current == "none"
+                            ? ""
+                            : audioStateRef.current == "wait"
+                            ? "is-active is-waiting"
+                            : "is-active"
                     } relative agent-mic-toggle h-[40px] w-[40px] flex items-center justify-center`}
                     onClick={handleClick}
                     disabled={micDisable}
