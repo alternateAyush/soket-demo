@@ -2,22 +2,29 @@
 
 import React, { useRef, useState } from "react";
 import axios from "axios";
-import { FaMicrophone, FaStop } from "react-icons/fa";
+import { FaCircleStop, FaMicrophone } from "react-icons/fa6";
+import { BiLoaderAlt } from "react-icons/bi";
 import { Canvas, useFrame } from "@react-three/fiber";
 import WavEncoder from "wav-encoder";
 import { Vector2, Vector3, Mesh, ShaderMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { getContext, getJsonData } from "@/utils/inputUtils";
+import { Space_Mono } from "next/font/google";
+const spaceMono = Space_Mono({
+    subsets: ["latin"],
+    weight: ["400"],
+});
 
 type AudioSphereProps = {
     styles?: string;
     position?: Vector3 | undefined;
+    height?: string;
     size?:
         | [radius?: number | undefined, detail?: number | undefined]
         | undefined;
 };
 
-function AudioSphere({ styles, position, size }: AudioSphereProps) {
+function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
     const vertexShader = `
     uniform float u_time;
     vec3 mod289(vec3 x)
@@ -257,6 +264,7 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
     const recordedChunksRef = useRef<Blob[]>([]);
     const movingAverageRef = useRef(0.0);
     const [bloom, setBloom] = useState([0.4, 0.5, 0.5]);
+    const [voiceAgent, setVoiceAgent] = useState("ideal");
 
     async function setUpAudioRecording() {
         try {
@@ -518,8 +526,12 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
         }
     }
     return (
-        <div className={`${styles} flex flex-col justify-center items-center `}>
-            <div className='p-0 m-0 overflow-hidden flex flex-col w-full h-full justify-center items-center'>
+        <div
+            className={`${styles} agent-container flex-col justify-start items-center space-y-4 h-auto border rounded-[45px] p-[20px]`}
+        >
+            <div
+                className={`relative agent-canvas-container h-[${height}] w-full rounded-[25px]`}
+            >
                 <Canvas>
                     <Scene />
                     <EffectComposer>
@@ -530,20 +542,65 @@ function AudioSphere({ styles, position, size }: AudioSphereProps) {
                         />
                     </EffectComposer>
                 </Canvas>
+                <div
+                    className={`${spaceMono.className} text-[12px] z-10 agent-tag flex justify-center items-center absolute top-3 left-3 rounded-full px-[10px]`}
+                >
+                    <span>Demo</span>
+                </div>
+                <span
+                    className={`cabinet-grotesk w-full text-center text-[12px] z-10 absolute bottom-2 left-0`}
+                >
+                    {audioStateRef.current == "none" ? (
+                        ""
+                    ) : audioStateRef.current == "listen" ? (
+                        "Listening..."
+                    ) : audioStateRef.current == "wait" ? (
+                        "Thinking..."
+                    ) : audioStateRef.current == "speak" ? (
+                        "Answering..."
+                    ) : (
+                        <FaCircleStop size={22} />
+                    )}
+                </span>
             </div>
-
-            <button
-                type='button'
-                onClick={handleClick}
-                className='hidden rounded-full p-2 bg-red-500 text-white shadow-md shadow-red-300 active:shadow-none active:bg-red-400 disabled:bg-slate-300 disabled:text-slate-500 disabled:cursor-not-allowed disabled:shadow-none'
-                disabled={micDisable}
+            <div
+                className={`${
+                    audioStateRef.current !== "none"
+                        ? "bg-transparent flex justify-center items-center p-[10px]"
+                        : "agent-button-container mx-auto w-full md:w-[75%] flex flex-row justify-between items-center rounded-[55px] p-[10px]"
+                }`}
             >
-                {isRecording ? (
-                    <FaStop size={20} />
-                ) : (
-                    <FaMicrophone size={20} />
-                )}
-            </button>
+                <span
+                    className={`${
+                        audioStateRef.current !== "none"
+                            ? `hidden`
+                            : `${spaceMono.className} uppercase text-[12px] ml-[10px] text-nowrap text-ellipsis overflow-hidden`
+                    }`}
+                >
+                    tap here to start talking
+                </span>
+                <button
+                    className={`${
+                        audioStateRef.current == "none" ? (
+                            ""
+                        ) : audioStateRef.current == "wait" ? (
+                            "is-active is-waiting"
+                        ) : 
+                            "is-active"     
+                        
+                    } relative agent-mic-toggle h-[40px] w-[40px] flex items-center justify-center`}
+                    onClick={handleClick}
+                    disabled={micDisable}
+                >
+                    {audioStateRef.current == "none" ? (
+                        <FaMicrophone size={20} />
+                    ) : audioStateRef.current == "wait" ? (
+                        <BiLoaderAlt size={22} />
+                    ) : (
+                        <FaCircleStop size={22} />
+                    )}
+                </button>
+            </div>
         </div>
     );
 }

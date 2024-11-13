@@ -171,6 +171,123 @@ body {
 
     box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.63) inset;
 }
+
+.agent-mic-toggle {
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.08)
+        ),
+        linear-gradient(178.48deg, #1c6dff -40.78%, #00ffe1 157.66%);
+    box-shadow: 0px 0px 19.4px 0px rgba(14, 180, 240, 1);
+
+    box-shadow: 0px 5px 13.9px 0px rgba(4, 168, 163, 1) inset;
+
+    box-shadow: 0px -3px 13.9px 0px rgba(90, 172, 255, 1) inset;
+
+    box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.63) inset;
+
+    border-radius: 50%;
+}
+.agent-mic-toggle.is-waiting {
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.08)
+        ),
+        linear-gradient(
+            178.48deg,
+            rgba(128, 128, 128, 0.4),
+            rgba(128, 128, 128, 0.8)
+        );
+}
+
+.agent-mic-toggle:after,
+.agent-mic-toggle:before {
+    --pad: 0rem;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(26, 168, 227, 0.2);
+    box-shadow: 0px 0px 19.4px 0px rgba(14, 180, 240, 0.5);
+    box-shadow: 0px 5px 13.9px 0px rgba(4, 168, 163, 0.5) inset;
+    box-shadow: 0px -3px 13.9px 0px rgba(90, 172, 255, 0.5) inset;
+    box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.36) inset;
+    top: var(--pad);
+    left: var(--pad);
+    bottom: var(--pad);
+    border-radius: 50%;
+}
+.agent-mic-toggle:after {
+    background-color: rgba(26, 168, 227, 0.1);
+    box-shadow: 0px 0px 19.4px 0px rgba(14, 180, 240, 0.25);
+    box-shadow: 0px 5px 13.9px 0px rgba(4, 168, 163, 0.25) inset;
+    box-shadow: 0px -3px 13.9px 0px rgba(90, 172, 255, 0.25) inset;
+    box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.18) inset;
+}
+.agent-mic-toggle.is-waiting:after,
+.agent-mic-toggle.is-waiting:before {
+    background-color: rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 0px 19.4px 0px rgba(220, 220, 220, 0.5);
+    box-shadow: 0px 5px 13.9px 0px rgba(220, 220, 220, 0.5) inset;
+    box-shadow: 0px -3px 13.9px 0px rgba(220, 220, 220, 0.2) inset;
+    box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.36) inset;
+}
+.agent-mic-toggle.is-waiting:after{
+    background-color: rgba(128, 128, 128, 0.1);
+    box-shadow: 0px 0px 19.4px 0px rgba(220, 220, 220, 0.25);
+    box-shadow: 0px 5px 13.9px 0px rgba(220, 220, 220, 0.25) inset;
+    box-shadow: 0px -3px 13.9px 0px rgba(220, 220, 220, 0.15) inset;
+    box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.18) inset;
+}
+.agent-mic-toggle:after {
+    transition: 0.4s;
+}
+.agent-mic-toggle:before {
+    transition: 0.2s;
+}
+.agent-mic-toggle:hover:before {
+    --pad: 1rem;
+}
+.agent-mic-toggle:hover:after {
+    --pad: 2rem;
+}
+.agent-mic-toggle.is-active:after {
+    animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+}
+.agent-mic-toggle.is-active:before {
+    animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+@keyframes smoothPadAfter {
+    0% {
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+    }
+    100% {
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+    }
+}
+@keyframes smoothPadBefore {
+    0% {
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+    }
+    100% {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+    }
+}
 /* -- voice agent css end --  */
 
 /* Custom Scrollbar Styling */

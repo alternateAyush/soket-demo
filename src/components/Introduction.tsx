@@ -95,7 +95,7 @@ const Introduction = () => {
                         </div>
                     </div>
                 </div>
-                <VoiceAgent styles='hidden md:flex w-[428px]' />
+                <VoiceAgent styles='hidden md:flex w-[400px]' />
             </div>
 
             <div className='-z-50 w-full h-full absolute top-0 left-0 bg-black bg-custom-gradient'>
