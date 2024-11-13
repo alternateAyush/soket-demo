@@ -164,7 +164,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
     function Sphere() {
         const meshRef = useRef<Mesh | null>(null);
         const shaderMaterialRef = useRef<ShaderMaterial | null>(null);
-        const zAxisRef = useRef(0.04);
+        const zAxisRef = useRef(0.03);
         const uniforms = {
             u_resolution: {
                 type: "v2",
