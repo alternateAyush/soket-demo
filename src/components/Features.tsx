@@ -60,7 +60,7 @@ const Features = () => {
                             <p className='text-[rgba(255,255,255,0.7)] text-[16px]'>
                                 {featureList[0].para}
                             </p>
-                            <Link href="/home#features" className='flex flex-row justify-center items-center space-x-2 rounded-lg text-[16px] p-2 border border-transparent hover:border-white'>
+                            <Link href="/home#features" className='hidden flex-row justify-center items-center space-x-2 rounded-lg text-[16px] p-2 border border-transparent hover:border-white'>
                                 <span>Try Now</span>
                                 <IoIosArrowForward />
                             </Link>

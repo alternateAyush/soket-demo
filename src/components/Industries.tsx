@@ -82,7 +82,7 @@ const Industries = () => {
                             </p>
                             <Link
                                 href='/home#industries'
-                                className={`${spaceMono.className} pb-1 flex flex-row space-x-2 justify-start items-center flex-nowrap border-b border-transparent hover:border-white `}
+                                className={`${spaceMono.className} hidden pb-1  flex-row space-x-2 justify-start items-center flex-nowrap border-b border-transparent hover:border-white `}
                             >
                                 <span className='text-[16px]'>Try Now</span>
                                 <IoIosArrowForward size={16} />
