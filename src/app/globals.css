@@ -118,6 +118,7 @@ body {
     background: rgba(64, 64, 64, 0.19);
     box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.31) inset;
     border-image-source: linear-gradient(180deg, #878787 -1.52%, #3c3c3c 100%);
+    backdrop-filter: blur(76.30000305175781px);
 }
 .agent-tag {
     background: linear-gradient(
@@ -131,9 +132,19 @@ body {
     background-image: linear-gradient(
         0deg,
         rgba(71, 89, 121, 0.7),
-        rgba(1, 1, 1, 1) 20%
+        rgba(71, 89, 121, 0.4) 5%,
+        rgba(1, 1, 1, 1) 30%
     );
     backdrop-filter: blur(76.30000305175781px);
+}
+.agent-canvas-container.agent-canvas-container-listening {
+    background-image: linear-gradient(
+        0deg,
+        /* rgba(71, 89, 121, 0.7), */
+        rgb(50,64,96),
+        rgb(50,64,96,0.7) 5%,
+        rgb(3, 7, 21) 30%
+    );
 }
 /* .agent-button-container {
     border: 2px; 
@@ -234,7 +245,7 @@ body {
     box-shadow: 0px -3px 13.9px 0px rgba(220, 220, 220, 0.2) inset;
     box-shadow: 0px 3px 6.9px 0px rgba(255, 255, 255, 0.36) inset;
 }
-.agent-mic-toggle.is-waiting:after{
+.agent-mic-toggle.is-waiting:after {
     background-color: rgba(128, 128, 128, 0.1);
     box-shadow: 0px 0px 19.4px 0px rgba(220, 220, 220, 0.25);
     box-shadow: 0px 5px 13.9px 0px rgba(220, 220, 220, 0.25) inset;

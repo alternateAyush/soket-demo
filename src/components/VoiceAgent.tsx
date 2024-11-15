@@ -13,7 +13,7 @@ const VoiceAgent = ({ styles }: VoiceAgentProps) => {
             <AudioSphere
                 styles='w-full text-white'
                 position={position}
-                size={[1.8, 8]}
+                size={[1.8, 6]}
                 height='350px'
             />
         </div>

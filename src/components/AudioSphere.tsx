@@ -202,9 +202,9 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                     // uniformRef.current.u_green.value = 0.6;
                     // uniformRef.current.u_blue.value = 0.4;
                     // uniformRef.current.u_red.value = 0.4;
-                    uniformRef.current.u_green.value = 0.67;
-                    uniformRef.current.u_blue.value = 1;
-                    uniformRef.current.u_red.value = 0.35;
+                    uniformRef.current.u_red.value = 0.698;
+                    uniformRef.current.u_green.value = 0.956;
+                    uniformRef.current.u_blue.value = 0.98;
                 } else if (audioStateRef.current === "wait") {
                     uniformRef.current.u_frequency.value = 0.0;
                     meshRef.current!.position.z += zAxisRef.current;
@@ -287,7 +287,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                 setIsRecording(true);
                 audioStateRef.current = "listen";
                 animateRef.current = true;
-                setBloom([3, 0.2, 0.2]);
+                setBloom([2, 0.3, 0.3]);
                 recordedChunksRef.current = [];
             };
             mediaRecorderRef.current.ondataavailable = (event) => {
@@ -533,7 +533,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
             className={`${styles} agent-container flex-col justify-start items-center space-y-4 h-auto border rounded-[45px] p-[20px]`}
         >
             <div
-                className={`relative agent-canvas-container h-[${height}] w-full rounded-[25px]`}
+                className={`agent-canvas-container ${audioStateRef.current!=="none"? "agent-canvas-container-listening":""} relative h-[${height}] w-full rounded-[25px]`}
             >
                 <Canvas>
                     <Scene />
@@ -566,12 +566,14 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                     )}
                 </span>
             </div>
-            <div
-                className={`${
+            <button
+                className={`mx-auto w-full md:w-[75%] flex flex-row items-center p-[10px] ${
                     audioStateRef.current !== "none"
-                        ? "bg-transparent flex justify-center items-center p-[10px]"
-                        : "agent-button-container mx-auto w-full md:w-[75%] flex flex-row justify-between items-center rounded-[55px] p-[10px]"
+                        ? "bg-transparent justify-center"
+                        : "agent-button-container justify-between rounded-[55px]"
                 }`}
+                onClick={handleClick}
+                disabled={micDisable}
             >
                 <span
                     className={`${
@@ -582,7 +584,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                 >
                     tap here to start talking
                 </span>
-                <button
+                <div
                     className={`${
                         audioStateRef.current == "none"
                             ? ""
@@ -590,8 +592,6 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                             ? "is-active is-waiting"
                             : "is-active"
                     } relative agent-mic-toggle h-[40px] w-[40px] flex items-center justify-center`}
-                    onClick={handleClick}
-                    disabled={micDisable}
                 >
                     {audioStateRef.current == "none" ? (
                         <FaMicrophone size={20} />
@@ -600,8 +600,8 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                     ) : (
                         <FaCircleStop size={22} />
                     )}
-                </button>
-            </div>
+                </div>
+            </button>
         </div>
     );
 }
