@@ -132,8 +132,8 @@ body {
     background-image: linear-gradient(
         0deg,
         rgba(71, 89, 121, 0.7),
-        rgba(71, 89, 121, 0.4) 5%,
-        rgba(1, 1, 1, 1) 30%
+        rgba(71, 89, 121, 0.4) 3%,
+        rgba(1, 1, 1, 1) 25%
     );
     backdrop-filter: blur(76.30000305175781px);
 }
@@ -142,8 +142,8 @@ body {
         0deg,
         /* rgba(71, 89, 121, 0.7), */
         rgb(50,64,96),
-        rgb(50,64,96,0.7) 5%,
-        rgb(3, 7, 21) 30%
+        rgb(50,64,96,0.7) 3%,
+        rgb(3, 7, 21) 25%
     );
 }
 /* .agent-button-container {

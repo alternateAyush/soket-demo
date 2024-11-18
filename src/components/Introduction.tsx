@@ -19,9 +19,10 @@ const tagList = [
     { title: "Unified" },
 ];
 
+const titleTextMobile = "Soket AI Labs' S2S API";
 const titleText =
     "Real-Time Conversations with Soket AI Labs' Speech-to-Speech API";
-
+const subtitleText = "Real-time conversation Agent";
 const titleAbout =
     "Our cutting-edge Speech-to-Speech API is designed to transform how businesses interact, break language barriers, automate workflows, and enable real-time multilingual communication.";
 
@@ -53,7 +54,6 @@ const Introduction = () => {
         >
             <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-between items-center'>
                 <div className='flex flex-col justify-start items-center md:items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
-                    <VoiceAgent styles='w-full flex md:hidden' />
                     <ul
                         className={`${spaceMono.className} flex flex-row flex-wrap justify-center md:justify-start items-center w-full`}
                     >
@@ -68,9 +68,19 @@ const Introduction = () => {
                             );
                         })}
                     </ul>
-                    <h1 className='w-full text-center md:text-left cabinet-grotesk-medium text-[3.5rem] leading-[3.7rem] md:text-[4rem] md:leading-[4.1rem] break-words text-gradient'>
+                    <h1 className='hidden md:block w-full text-left cabinet-grotesk-medium text-[4rem] leading-[4.1rem] break-words text-gradient'>
                         {titleText}
                     </h1>
+                    <div className='md:hidden flex flex-col justify-start items-center space-y-3'>
+                        <h1 className='w-full text-center md:text-left cabinet-grotesk-medium text-[3.5rem] leading-[3.7rem] md:text-[4rem] md:leading-[4.1rem] break-words text-gradient'>
+                            {titleTextMobile}
+                        </h1>
+                        <h2 className='w-full text-center  cabinet-grotesk text-[1.5rem] leading-[1.6rem] break-words text-[rgba(255,255,255,0.6)]'>
+                            {subtitleText}
+                        </h2>
+                    </div>
+                    <VoiceAgent styles='w-full flex md:hidden' />
+
                     <p className='w-full text-[rgba(255,255,255,0.6)] text-center md:text-left cabinet-grotesk-medium text-[0.9rem] md:text-[1.1rem]'>
                         {titleAbout}
                     </p>

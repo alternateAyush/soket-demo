@@ -14,7 +14,7 @@ const Audio3dPage = () => {
             <AudioSphere
                 styles='w-full md:w-1/2 text-white'
                 position={position}
-                size={[1.7, 10]}
+                size={[1.8, 6]}
                 height='350px'
             />
         </div>
