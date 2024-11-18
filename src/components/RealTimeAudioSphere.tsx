@@ -399,11 +399,10 @@ function RealTimeAudioSphere({
         let isLoaded = true;
         const wavRecorder = wavRecorderRef.current;
         const wavStreamPlayer = wavStreamPlayerRef.current;
-        const isRec=isRecording;
 
         const render = () => {
             if (isLoaded) {
-                if (isRec) {
+                if (isRecording) {
                     console.log("hello");
                     const result = wavRecorder.recording
                         ? wavRecorder.getFrequencies("voice")
@@ -523,7 +522,7 @@ function RealTimeAudioSphere({
                     <span>Demo</span>
                 </div>
             </div>
-            <div className='flex flex-row justify-evenly items-center p-2'>
+            <div className='flex flex-col md:flex-row justify-start items-stretch md:justify-evenly md:items-center p-2 space-y-4 md:space-y-0'>
                 <button
                     onClick={
                         isConnected
@@ -548,7 +547,7 @@ function RealTimeAudioSphere({
                     onMouseDown={startRecording}
                     onMouseUp={stopRecording}
                     onTouchStart={startRecording}
-                    onTouchEnd={startRecording}
+                    onTouchEnd={stopRecording}
                 >
                     {isRecording ? "release to send" : "push to talk"}
                 </button>
