@@ -14,7 +14,7 @@ const Audio3dPage2 = () => {
             <RealTimeAudioSphere
                 styles='w-full md:w-1/2 text-white'
                 position={position}
-                size={[2.0, 8]}
+                size={[2.0, 15]}
                 height='350px'
             />
         </div>

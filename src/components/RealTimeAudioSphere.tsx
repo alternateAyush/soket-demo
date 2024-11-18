@@ -402,7 +402,7 @@ function RealTimeAudioSphere({
 
         const render = () => {
             if (isLoaded) {
-                if (isRecording) {
+                if (clientActiveRef.current===true) {
                     console.log("hello");
                     const result = wavRecorder.recording
                         ? wavRecorder.getFrequencies("voice")
@@ -429,7 +429,7 @@ function RealTimeAudioSphere({
                     const average = sum / dataArray.length;
                     movingAverageRef.current = average;
                     // (alpha * average + (1 - alpha) * movingAverageRef.current) / 50;
-                    // console.log("moving avg: ", movingAverageRef.current);
+                    console.log("moving avg: ", movingAverageRef.current);
                 }
             } else {
                 movingAverageRef.current = 0;
@@ -440,7 +440,7 @@ function RealTimeAudioSphere({
         return () => {
             isLoaded = false;
         };
-    }, [isRecording]);
+    }, []);
 
     useEffect(() => {
         // Get refs
