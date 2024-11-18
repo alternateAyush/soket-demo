@@ -243,7 +243,7 @@ function RealTimeAudioSphere({
         new WavStreamPlayer({ sampleRate: 8000 })
     );
     const clientRef = useRef<RealtimeClient>(
-        new RealtimeClient({ url: apiUrl })
+        new RealtimeClient({ url: apiUrl, apiKey: '' })
     );
     const clientActiveRef = useRef<Boolean>(false);
     const serverCanvasRef = useRef<HTMLCanvasElement>(null);
