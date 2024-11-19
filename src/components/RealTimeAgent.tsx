@@ -13,6 +13,7 @@ import { RealtimeClient } from "@openai/realtime-api-beta";
 import { WavRecorder, WavStreamPlayer } from "../lib/wavtools/index.js";
 import { instructions } from "../utils/conversation_config";
 import { WavRenderer } from "@/utils/wav_renderer";
+import { MdEdit, MdSave } from "react-icons/md";
 //------------------------------------------------
 
 const spaceMono = Space_Mono({
@@ -248,6 +249,8 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
 
     const [canPushToTalk, setCanPushToTalk] = useState(true);
     const [isRecording, setIsRecording] = useState(false);
+    const [customInstructions, setCustomInstructions] = useState(instructions);
+    const [edit, setEdit] = useState(false);
 
     /**
      * Connect to conversation:
@@ -273,8 +276,6 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
 
             // Connect to audio output
             await wavStreamPlayer.connect();
-
-            // Connect to realtime API
             await client.connect();
             client.sendUserMessageContent([
                 {
@@ -437,7 +438,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
         const client = clientRef.current;
 
         // Set instructions
-        client.updateSession({ instructions: instructions });
+        client.updateSession({ instructions: customInstructions });
         // Set transcription, otherwise we don't get user transcriptions back
         client.updateSession({
             input_audio_transcription: { model: "whisper-1" },
@@ -484,6 +485,15 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
             client.reset();
         };
     }, []);
+    const updateInstructions = async () => {
+        try {
+            console.log(customInstructions);
+            const client = clientRef.current;
+            await client.updateSession({ instructions: customInstructions });
+        } catch (e) {
+            console.log("updateInstruction Error");
+        }
+    };
     return (
         <div
             className={`${
@@ -533,6 +543,28 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                 >
                     {isRecording ? "release to send" : "push to talk"}
                 </button>
+            </div>
+            <div className='z-10 absolute top-0 right-1 w-full h-auto flex flex-col justify-start items-end space-y-3'>
+                <button
+                    onClick={() => {
+                        setEdit(!edit);
+                        if (edit) {
+                            updateInstructions();
+                        }
+                    }}
+                    className='h-[40px] w-[40px] rounded-full bg-black text-[rgba(255,255,255,0.6)] flex justify-center items-center overflow-hidden select-none hover:text-white hover:bg-[rgba(255,255,255,0.1)]'
+                >
+                    {edit ? <MdSave /> : <MdEdit />}
+                </button>
+                <textarea
+                    value={customInstructions}
+                    onChange={(e) => {
+                        setCustomInstructions(e.target.value);
+                    }}
+                    className={`${
+                        edit ? "" : "hidden"
+                    } h-[300px] w-[90%] p-2 bg-[rgba(0,0,0,0.8)] text-white border border-white`}
+                ></textarea>
             </div>
         </div>
     );
