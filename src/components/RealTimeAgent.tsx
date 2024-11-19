@@ -36,12 +36,7 @@ interface RealtimeEvent {
     event: { [key: string]: any };
 }
 
-function RealTimeAudioSphere({
-    styles,
-    position,
-    size,
-    height,
-}: AudioSphereProps) {
+function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
     const vertexShader = `
     uniform float u_time;
     vec3 mod289(vec3 x)
@@ -420,17 +415,14 @@ function RealTimeAudioSphere({
                 let sum = 0;
                 for (let i = 0; i < dataArray.length; i++) {
                     sum += Math.abs(dataArray[i]);
-                    // console.log(Math.abs(dataArray[i]));
                 }
                 const average = sum / dataArray.length;
                 if (average != 0) {
-                    console.log("hi");
                     movingAverageRef.current = Math.abs(average - 0.05) / 5;
                 } else {
                     movingAverageRef.current = average;
                 }
             }
-            console.log(movingAverageRef.current);
             window.requestAnimationFrame(render);
         };
         render();
@@ -494,15 +486,13 @@ function RealTimeAudioSphere({
     }, []);
     return (
         <div
-            className={`${styles} agent-container flex-col justify-start items-center space-y-4 h-auto border rounded-[45px] p-[20px]`}
+            className={`${
+                audioStateRef.current !== "none"
+                    ? "agent-canvas-container-listening"
+                    : ""
+            } agent-canvas-container flex flex-col justify-center items-center space-y-4 h-full w-full p-[20px]`}
         >
-            <div
-                className={`agent-canvas-container ${
-                    audioStateRef.current !== "none"
-                        ? "agent-canvas-container-listening"
-                        : ""
-                } relative h-[${height}] w-full rounded-[25px]`}
-            >
+            <div className={`w-full h-[400px]`}>
                 <Canvas>
                     <Scene />
                     <EffectComposer>
@@ -513,13 +503,8 @@ function RealTimeAudioSphere({
                         />
                     </EffectComposer>
                 </Canvas>
-                <div
-                    className={`${spaceMono.className} text-[12px] z-10 agent-tag flex justify-center items-center absolute top-3 left-3 rounded-full px-[10px]`}
-                >
-                    <span>Demo</span>
-                </div>
             </div>
-            <div className='flex flex-col md:flex-row justify-start items-stretch md:justify-evenly md:items-center p-2 space-y-4 md:space-y-0'>
+            <div className='w-full md:w-1/2 flex flex-col justify-start items-stretch p-2 space-y-4'>
                 <button
                     onClick={
                         isConnected
@@ -553,4 +538,4 @@ function RealTimeAudioSphere({
     );
 }
 
-export default RealTimeAudioSphere;
+export default RealTimeAgent;

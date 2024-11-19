@@ -150,6 +150,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
         const inputData = input[0];
         const sum = inputData.reduce((acc, val) => acc + Math.abs(val), 0);
         const average = sum / inputData.length;
+        console.log(average);
         this.movingAverage = this.alpha * average + (1 - this.alpha) * this.movingAverage;
         this.port.postMessage(this.movingAverage);
       }
@@ -454,6 +455,7 @@ function AudioSphere({ styles, position, size, height }: AudioSphereProps) {
                     sum += Math.abs(dataArray[i] - 128); // Convert unsigned byte to centered data
                 }
                 const average = sum / dataArray.length;
+                console.log(average);
                 movingAverageRef.current =
                     (alpha * average + (1 - alpha) * movingAverageRef.current) /
                     50;
