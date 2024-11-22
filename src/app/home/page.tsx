@@ -14,7 +14,7 @@ const HomePage = () => {
       <Introduction/>
       <HighLights/>
       <Features/>
-      <APIDemo/>
+      {/* <APIDemo/> */}
       <Industries/>
       <DemoVideos/>
       <Reviews/>

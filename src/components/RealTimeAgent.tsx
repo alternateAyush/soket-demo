@@ -342,9 +342,9 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                 const { trackId, offset } = trackSampleOffset;
                 await client.cancelResponse(trackId, offset);
             }
-            await wavRecorder.record((data) =>
-                client.appendInputAudio(data.mono)
-            );
+            await wavRecorder.record((data) => {
+                client.appendInputAudio(data.mono);
+            });
         } catch (error) {
             console.log("startRecording function error", error);
         }
@@ -491,7 +491,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
             const client = clientRef.current;
             await client.updateSession({ instructions: customInstructions });
         } catch (e) {
-            console.log("updateInstruction Error");
+            console.log("updateInstruction Error ",e);
         }
     };
     return (

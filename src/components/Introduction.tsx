@@ -50,9 +50,9 @@ const Introduction = () => {
     return (
         <section
             id='introduction'
-            className='pt-[150px] m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
+            className='pt-[150px] px-[20px] md:px-0 m-0 pb-[120px] relative text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
         >
-            <div className='h-auto w-full px-3 md:px-0 md:w-[1150px] mx-auto flex justify-between items-center'>
+            <div className='h-auto w-full md:w-[1150px] mx-auto flex justify-between items-center'>
                 <div className='flex flex-col justify-start items-center md:items-start space-y-[40px] w-full md:w-[58%] h-auto backdrop-blur-[1px] overflow-hidden'>
                     <ul
                         className={`${spaceMono.className} flex flex-row flex-wrap justify-center md:justify-start items-center w-full`}
@@ -61,7 +61,7 @@ const Introduction = () => {
                             return (
                                 <li
                                     key={index}
-                                    className='my-1 mr-2 p-1 px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)] cursor-default'
+                                    className='my-1 mr-2 p-1 px-[10px] md:px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] cursor-default'
                                 >
                                     {tag.title}
                                 </li>
@@ -81,7 +81,7 @@ const Introduction = () => {
                     </div>
                     <VoiceAgent styles='w-full flex md:hidden' />
 
-                    <p className='w-full text-[rgba(255,255,255,0.6)] text-center md:text-left cabinet-grotesk-medium text-[0.9rem] md:text-[1.1rem]'>
+                    <p className='w-full text-[rgba(255,255,255,0.6)] text-center md:text-left cabinet-grotesk-medium text-[1.1rem]'>
                         {titleAbout}
                     </p>
                     <div

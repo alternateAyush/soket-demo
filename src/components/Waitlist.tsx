@@ -6,6 +6,7 @@ import bgImg from "../../public/images/bg_02.png";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import axios, { AxiosError } from "axios";
+import { BiLoaderCircle} from "react-icons/bi";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -20,7 +21,9 @@ const totalWaitlist = 234;
 
 const Waitlist = () => {
     const [count, setCount] = useState(totalWaitlist);
+    const [loading,setLoading] = useState(false);
     useEffect(() => {
+        setLoading(false);
         const getTotalCount = async function () {
             try {
                 const response = await axios.get(
@@ -41,12 +44,12 @@ const Waitlist = () => {
     return (
         <section
             id={sectionName}
-            className='pt-[70px] md:pt-[100px] md:pb-0 mt-[-20px] relative rounded-t-3xl text-black bg-white z-0 w-[100vw] h-auto overflow-hidden'
+            className='pt-[130px] md:pt-[130px] md:pb-0 mt-[-20px] relative rounded-t-3xl text-black bg-white z-0 w-[100vw] h-auto overflow-hidden'
         >
-            <div className='cabinet-grotesk-medium mb-[50px] px-[20px] md:px-0 w-full md:w-[1150px] mx-auto'>
+            <div className='px-[20px] md:px-0  cabinet-grotesk-medium mb-[50px] w-full md:w-[1150px] mx-auto'>
                 <div className='w-full mx-auto md:w-[60%] flex flex-col justify-start items-center space-y-[30px]'>
                     <span
-                        className={`${spaceMono.className} uppercase text-[10px] tracking-[2px] text-nowrap`}
+                        className={`${spaceMono.className} uppercase text-[14px] text-nowrap`}
                     >
                         {"// "}
                         {sectionName}
@@ -54,16 +57,18 @@ const Waitlist = () => {
                     <h2 className='w-full text-[3.5rem] leading-[3.6rem] md:text-[5rem] md:leading-[5.1rem] break-words text-center cabinet-grotesk'>
                         {sectionTitle}
                     </h2>
-                    <p className='w-[80%] text-[16px] text-center'>{para}</p>
+                    <p className='text-[16px] text-center md:w-[80%]'>{para}</p>
                     <div
                         className={`${spaceMono.className} flex flex-col justify-start items-center space-y-[10px]`}
                     >
                         <Link
                             href={"/home/waitlist"}
                             className={` bg-black text-white flex flex-row justify-center items-center rounded-full border border-white hover:bg-white hover:text-black hover:border-black p-[10px] px-[40px] space-x-1`}
+                            onClick={()=>{setLoading(true)}}
                         >
-                            <span>Join the Waitlist</span>
-                            <IoIosArrowForward />
+                            <span className={`${!loading? 'inline':'hidden'}`}>Join the Waitlist</span>
+                            <IoIosArrowForward className={`${!loading? 'inline':'hidden'}`}/>
+                            <BiLoaderCircle size={25} className={`${loading? 'inline':'hidden'} load-animation`}/>
                         </Link>
 
                         <div className='flex flex-row justify-start items-center space-x-2'>

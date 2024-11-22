@@ -41,23 +41,23 @@ const Features = () => {
             id={sectionName}
             className='cabinet-grotesk-medium pt-[70px] md:pt-[100px] mt-[-20px] relative rounded-t-3xl text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
         >
-            <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
+            <div className='px-[20px] md:px-0 flex flex-col justify-start items-start space-y-[30px] w-full md:w-[1150px] mx-auto'>
                 <span
-                    className={`${spaceMono.className} uppercase text-[10px] tracking-[2px] text-nowrap`}
+                    className={`${spaceMono.className} uppercase text-[14px] text-nowrap`}
                 >
                     {"// "}
                     {sectionName}
                 </span>
-                <h2 className='cabinet-grotesk w-full md:w-[50%] text-[3rem] leading-[3.1rem] break-words text-gradient'>
+                <h2 className='cabinet-grotesk w-full md:w-[50%] text-[2.5rem] md:text-[3rem] leading-[2.6rem] md:leading-[3.1rem] break-words text-gradient'>
                     {sectionTitle}
                 </h2>
-                <div className='w-full flex flex-col justify-start items-start space-y-[40px]'>
+                <div className='w-full flex flex-col justify-start items-start space-y-[20px]'>
                     <div className='w-full flex flex-col md:flex-row space-y-4 md:space-y-0 justify-evenly items-center h-auto border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(17,19,23,1)]'>
-                        <div className='mt-3 px-3 md:px-0 md:mt-0 md:mx-0 h-auto flex flex-col items-start space-y-4 w-full md:w-2/6'>
-                            <h3 className='text-white text-[1.5rem]'>
+                        <div className='mt-4 md:mt-0 h-auto flex flex-col items-start space-y-4 w-full md:w-2/6'>
+                            <h3 className='mx-4 md:mx-0 text-white text-[1.5rem]'>
                                 {featureList[0].title}
                             </h3>
-                            <p className='text-[rgba(255,255,255,0.7)] text-[16px]'>
+                            <p className='mx-4 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
                                 {featureList[0].para}
                             </p>
                             <Link href="/home#features" className='hidden flex-row justify-center items-center space-x-2 rounded-lg text-[16px] p-2 border border-transparent hover:border-white'>
@@ -65,7 +65,7 @@ const Features = () => {
                                 <IoIosArrowForward />
                             </Link>
                         </div>
-                        <div className='h-[250px] md:h-[300px] md:w-[48%] bg-transparent rounded-b-xl md:rounded-none overflow-hidden'>
+                        <div className='mx-4 md:mx-0 h-[250px] md:h-[300px] md:w-[48%] bg-transparent rounded-b-xl md:rounded-none overflow-hidden'>
                             <Image
                                 src={featureList[0].imgPath}
                                 alt={featureList[0].title}
@@ -73,10 +73,10 @@ const Features = () => {
                             />
                         </div>
                     </div>
-                    <div className='w-full flex flex-col md:flex-row space-y-[40px] md:space-y-0 md:space-x-[40px] justify-between items-center h-auto md:h-[500px]'>
+                    <div className='w-full flex flex-col md:flex-row space-y-[20px] md:space-y-0 md:space-x-[20px] justify-between items-center h-auto md:h-[500px]'>
                         <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(17,19,23,1)] md:overflow-hidden'>
                             <div className='md:mt-[50px] h-auto flex flex-col items-start space-y-4 w-full md:w-[75%] mx-auto'>
-                                <div className='mt-3 mx-3 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
+                                <div className='mt-4 mx-4 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
                                     <h3 className='inline text-white text-[1.5rem]'>
                                         {featureList[1].title}
                                     </h3>
@@ -84,11 +84,11 @@ const Features = () => {
                                         {featureList[1].subTitle}
                                     </h5>
                                 </div>
-                                <p className='mx-3 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
+                                <p className='mx-4 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
                                     {featureList[1].para}
                                 </p>
                             </div>
-                            <div className='h-[250px] md:h-[300px] w-full bg-transparent rounded-b-xl'>
+                            <div className='mx-4 md:mx-0 h-[250px] md:h-[300px] bg-transparent rounded-b-xl'>
                                 <Image
                                     src={featureList[1].imgPath}
                                     alt={featureList[1].title}
@@ -98,7 +98,7 @@ const Features = () => {
                         </div>
                         <div className='flex flex-col justify-between items-center space-y-6 md:space-y-0 w-full h-auto md:h-full  border border-[rgba(0,0,0,0.3)] rounded-xl bg-[rgba(17,19,23,1)] md:overflow-hidden'>
                             <div className='md:mt-[50px] h-auto flex flex-col items-start space-y-4 w-full md:w-[75%] mx-auto'>
-                                <div className='mt-3 mx-3 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
+                                <div className='mt-4 mx-4 md:mt-0 md:mx-0 w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
                                     <h3 className='inline text-white text-[1.5rem]'>
                                         {featureList[2].title}
                                     </h3>
@@ -106,7 +106,7 @@ const Features = () => {
                                         {featureList[2].subTitle}
                                     </h5>
                                 </div>
-                                <p className='mx-3 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
+                                <p className='mx-4 md:mx-0 text-[rgba(255,255,255,0.7)] text-[16px]'>
                                     {featureList[2].para}
                                 </p>
                             </div>
@@ -114,7 +114,7 @@ const Features = () => {
                                 <Image
                                     src={featureList[2].imgPath}
                                     alt={featureList[2].title}
-                                    className='h-full w-auto object-contain object-bottom'
+                                    className='h-full w-auto object-contain object-center'
                                 />
                             </div>
                         </div>

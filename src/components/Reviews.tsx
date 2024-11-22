@@ -10,7 +10,7 @@ const spaceMono = Space_Mono({
     weight: ["400"],
 });
 
-const sectionName = "reviews";
+const sectionName = "testimonials";
 const sectionTitle = "S2S API Applications Across Different Industries";
 
 // const reviewList = [
@@ -27,12 +27,12 @@ const Reviews = () => {
         >
             <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
-                    className={`${spaceMono.className} uppercase text-[10px] tracking-[2px] text-nowrap`}
+                    className={`${spaceMono.className} uppercase text-[14px] text-nowrap`}
                 >
                     {"// "}
-                    {`features`}
+                    {sectionName}
                 </span>
-                <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk break-words text-gradient'>
+                <h2 className='w-full md:w-[50%] text-[2.5rem] md:text-[3rem] leading-[2.6rem] md:leading-[3.1rem] cabinet-grotesk break-words text-gradient'>
                     {sectionTitle}
                 </h2>
             </div>
@@ -50,7 +50,7 @@ const Reviews = () => {
                         />
                     </div>
                 </div>
-                <div className='mt-[50px] md:mt-0 h-full w-full md:w-[50%] flex flex-col justify-start items-start space-y-[40px]'>
+                <div className='mt-[30px] md:mt-0 h-full w-full md:w-[50%] flex flex-col justify-start items-start space-y-[30px] md:space-y-[40px]'>
                     <p className='w-full md:w-[75%] inline text-[1.2rem] cabinet-grotesk text-[rgba(255,255,255,0.7)]'>
                         {`‘’Changing our `}
                         <span className='cabinet-grotesk-bold text-white'>{`CRM platform`}</span>
@@ -65,8 +65,8 @@ const Reviews = () => {
                     <div className='w-3/4 md:w-full flex flex-col justify-start items-start space-y-2'>
                         <div className='w-full flex flex-row justify-between items-start'>
                             <div className='flex flex-col justify-start items-start space-y-2 flex-wrap'>
-                                <h6 className='cabinet-grotesk-bold text-[1rem]'>{`Savannah Nguyen`}</h6>
-                                <span className='text-[rgba(255,255,255,0.6)] text-[14px] break-words'>{`Co-founder, Asfera Technologies Private Limited`}</span>
+                                <h6 className='cabinet-grotesk-bold text-[1.125rem]'>{`Savannah Nguyen`}</h6>
+                                <span className='text-[rgba(255,255,255,0.6)] text-[1rem] break-words'>{`Co-founder, Asfera Technologies Private Limited`}</span>
                             </div>
                             <div className='hidden md:flex flex-row justify-between items-center space-x-2'>
                                 <button className='flex justify-center items-center rounded-full h-[40px] w-[40px] border-2 border-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.4)] hover:border-[rgba(255,255,255,0.4)]'>
@@ -85,7 +85,7 @@ const Reviews = () => {
                             />
                         </div>
                         <ul className='w-full flex flex-row justify-start items-center flex-wrap space-x-2'>
-                            <li className='py-2 px-5 cabinet-grotesk bg-[rgba(33,34,39,1)] rounded-full text-[rgba(255,255,255,0.5)] text-[12px]'>
+                            <li className='py-2 px-5 cabinet-grotesk bg-[rgba(33,34,39,1)] rounded-full text-[rgba(255,255,255,0.5)] text-[0.875rem]'>
                                 <span>Multiple sectors</span>
                             </li>
                         </ul>

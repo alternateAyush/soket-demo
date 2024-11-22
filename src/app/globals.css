@@ -6,6 +6,7 @@
     margin: 0px;
     padding: 0px;
     word-break: normal;
+    user-select: none;
 }
 
 body {
@@ -140,22 +141,11 @@ body {
 .agent-canvas-container.agent-canvas-container-listening {
     background-image: linear-gradient(
         0deg,
-        /* rgba(71, 89, 121, 0.7), */
-        rgb(50,64,96),
-        rgb(50,64,96,0.7) 3%,
+        /* rgba(71, 89, 121, 0.7), */ rgb(50, 64, 96),
+        rgb(50, 64, 96, 0.7) 3%,
         rgb(3, 7, 21) 25%
     );
 }
-/* .agent-button-container {
-    border: 2px; 
-    border-image-source: linear-gradient(180deg, rgba(0, 123, 255, 0.6), red);
-    box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.6),
-         0 0 16px rgba(0, 123, 255, 0.4),
-        0 0 24px rgba(0, 123, 255, 0.2);
-    border-radius: 8px; 
-    transition: all 0.3s ease-in-out; 
-    border-radius: 45px;
-} */
 .agent-button-container {
     backdrop-filter: blur(76.30000305175781px);
     background: rgba(255, 255, 255, 0.08);
@@ -300,6 +290,75 @@ body {
     }
 }
 /* -- voice agent css end --  */
+
+/* auto scroll industry banner start*/
+.basic-style {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.industries-banner {
+    overflow: hidden;
+    padding: 50px 0px;
+    white-space: nowrap;
+}
+.industries-slide {
+    display: inline-block;
+
+    animation: 10s slide infinite linear;
+}
+.industries-tag {
+    display: inline;
+    margin: 0px 5px;
+    background-color: rgba(18, 18, 22, 1);
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px 20px;
+}
+.industries-banner:active .industries-slide {
+    animation-play-state: paused;
+}
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+/* auto scroll industry banner end*/
+.load-animation {
+    animation: 2s spinning infinite linear;
+}
+@keyframes spinning {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+/* animation */
+.navlist-animation {
+    animation-name: positioning;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+@keyframes positioning {
+    from {
+        /* margin: 10px; */
+        transform: translateX(20px);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    to {
+        /* margin: 0px; */
+        transform: translateX(0px);
+    }
+}
 
 /* Custom Scrollbar Styling */
 ::-webkit-scrollbar {

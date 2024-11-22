@@ -6,11 +6,6 @@ import industryImage_02 from "../../public/images/industry_img_02.png";
 import industryImage_03 from "../../public/images/industry_img_03.png";
 import Image from "next/image";
 import Link from "next/link";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-} from "@/components/ui/carousel";
 
 const spaceMono = Space_Mono({
     subsets: ["latin"],
@@ -24,16 +19,19 @@ const industryList = [
         title: "Customer Support",
         imgPath: industryImage_01,
         para: "Deliver multilingual, real-time assistance globally through using our API.",
+        height: "80px",
     },
     {
         title: "Marketing & Content Creation",
         imgPath: industryImage_02,
         para: "Produce natural-sounding voice content for digital campaigns in any language.",
+        height: "60px",
     },
     {
         title: "Workflow Automation",
         imgPath: industryImage_03,
         para: "Use voice to automate tasks like order management and customer inquiries.",
+        height: "80px",
     },
 ];
 const industryTagList = [
@@ -53,27 +51,29 @@ const Industries = () => {
         >
             <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
-                    className={`${spaceMono.className} uppercase text-[10px] tracking-[2px] text-nowrap`}
+                    className={`${spaceMono.className} uppercase text-[14px] text-nowrap`}
                 >
                     {"// "}
                     {sectionName}
                 </span>
-                <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk break-words text-gradient'>
+                <h2 className='w-full md:w-[50%] text-[2.5rem] md:text-[3rem] leading-[2.6rem] md:leading-[3.1rem] cabinet-grotesk break-words text-gradient'>
                     {sectionTitle}
                 </h2>
             </div>
-            <div className='mt-[50px] w-full md:w-[1150px] mx-auto px-[20px] md:px-0 grid grid-cols-1 md:grid-cols-3 gap-6 h-auto bg-black'>
+            <div className='mt-[20px] w-full md:w-[1150px] mx-auto px-[20px] md:px-0 grid grid-cols-1 md:grid-cols-3 gap-6 h-auto bg-black'>
                 {industryList.map((industry, index) => {
                     return (
                         <div
                             key={index}
                             className='py-[30px] flex flex-col space-y-[20px] justify-start items-start text-white border-b border-white'
                         >
-                            <div className='h-[120px] py-[20px] flex justify-start items-start overflow-hidden'>
+                            <div
+                                className={`h-[100px]  overflow-hidden flex justify-start items-end`}
+                            >
                                 <Image
                                     src={industry.imgPath}
                                     alt={industry.title}
-                                    className='h-full w-auto object-contain object-left'
+                                    className={`h-[${industry.height}] w-auto object-contain`}
                                 />
                             </div>
                             <h3 className='text-[1.5rem]'>{industry.title}</h3>
@@ -101,9 +101,9 @@ const Industries = () => {
                         return (
                             <li
                                 key={index}
-                                className='text-[1.2rem] py-[20px] px-[30px] tag-gradient rounded-lg text-center'
+                                className='cabinet-grotesk text-[1.5rem] py-[20px] px-[30px] bg-[rgba(18,18,22,1)] rounded-lg text-center'
                             >
-                                <span className='break-keep'>
+                                <span className='text-nowrap break-keep'>
                                     {industry.title}
                                 </span>
                             </li>
@@ -111,21 +111,36 @@ const Industries = () => {
                     })}
                 </ul>
             </div>
-            <Carousel className='md:hidden relative mt-[50px] w-full'>
-                <CarouselContent className={`w-full`}>
+            <div className='basic-style md:hidden relative mt-[50px] industries-banner'>
+                <div className='basic-style industries-slide'>
                     {industryTagList.map((industry, index) => {
                         return (
-                            <CarouselItem key={index} className='basis-[60%]'>
-                                <div className='w-auto mx-[10px] md:mx-0 text-[1.2rem] py-[20px] tag-gradient rounded-lg text-center text-nowrap overflow-hidden'>
-                                    <span className='break-keep'>
-                                        {industry.title}
-                                    </span>
-                                </div>
-                            </CarouselItem>
+                            <div
+                                key={index}
+                                className='basic-style industries-tag'
+                            >
+                                <span className='cabinet-grotesk text-[1.5rem] text-nowrap break-keep'>
+                                    {industry.title}
+                                </span>
+                            </div>
                         );
                     })}
-                </CarouselContent>
-            </Carousel>
+                </div>
+                <div className='basic-style industries-slide'>
+                    {industryTagList.map((industry, index) => {
+                        return (
+                            <div
+                                key={index}
+                                className='basic-style industries-tag'
+                            >
+                                <span className='cabinet-grotesk text-[1.5rem] text-nowrap break-keep select-none'>
+                                    {industry.title}
+                                </span>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
             <div className='-z-[40] w-full h-[150px] bg-custom-gradient-2 opacity-70'></div>
         </section>
     );

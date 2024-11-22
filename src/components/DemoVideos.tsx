@@ -16,7 +16,7 @@ const spaceMono = Space_Mono({
     weight: ["400"],
 });
 
-const sectionName = "demoVideos";
+const sectionName = "usecases";
 const sectionTitle = "See How It Works: Real-World Use Cases in Action";
 const demoVideostList = [
     {
@@ -56,13 +56,13 @@ const DemoVideos = () => {
         >
             <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
-                    className={`${spaceMono.className} uppercase text-black text-[10px] tracking-[2px] text-nowrap`}
+                    className={`${spaceMono.className} uppercase text-black text-[14px] text-nowrap`}
                 >
                     {"// "}
                     {`api demo`}
                 </span>
                 <div className='w-full flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0'>
-                    <h2 className='w-full md:w-[50%] text-[3rem] leading-[3.1rem] cabinet-grotesk break-words'>
+                    <h2 className='w-full md:w-[50%] text-[2.5rem] md:text-[3rem] leading-[2.6rem] md:leading-[3.1rem] cabinet-grotesk break-words'>
                         {sectionTitle}
                     </h2>
                     <div className='hidden md:flex flex-row justify-between items-center space-x-6 flex-nowrap'>

@@ -9,7 +9,7 @@ const WaitlistPage = () => {
     return (
         <section className='pt-[100px] m-0 relative z-0 h-auto min-h-[100vh] overflow-hidden text-white cabinet-grotesk-medium'>
             <div className='w-full flex flex-row justify-start items-center'>
-                <div className='px-3 md:px-0 w-full md:w-[1150px] mx-auto flex flex-row justify-start items-center'>
+                <div className='my-[20px] md:my-0 px-3 md:px-0 w-full md:w-[1150px] mx-auto flex flex-row justify-start items-center'>
                     <Link
                         href={"/home"}
                         className='flex flex-row justify-center items-center space-x-1 hover:text-[rgba(255,255,255,0.7)]'
@@ -20,7 +20,7 @@ const WaitlistPage = () => {
                 </div>
             </div>
             <JoinWaitlist />
-            <div className="w-full mt-[120px] mb-[30px] flex flex-row space-x-2 justify-center items-end">
+            <div className="w-full mt-[80px] md:mt-[120px] mb-[30px] flex flex-row space-x-2 justify-center items-end">
                 <span className="text-[rgba(255,255,255,0.7)] text-[1rem]">powered by</span>
                 <div className="overflow-hidden flex justify-center items-center">
                     <Image src={iconImg} alt="soketlabs_icon" width={120} className="object-contain" />

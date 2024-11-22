@@ -41,8 +41,8 @@ export const JoinWaitlist = () => {
                     error instanceof AxiosError
                         ? error.response.data.error
                         : "An unknown error occurred";
-    
-                console.log("totalCount error: ", errorMessage);                
+
+                console.log("totalCount error: ", errorMessage);
             }
         };
         getTotalCount();
@@ -84,7 +84,7 @@ export const JoinWaitlist = () => {
     };
     return (
         <section id='waitlistFrom' className='text-white w-full my-[20px]'>
-            <div className='z-0 relative bg-[rgba(0,0,0,0.8)] blurr-border rounded-lg px-3 md:px-0 flex flex-col justify-center items-center space-y-6 mx-auto w-full md:w-[575px] overflow-hidden'>
+            <div className='mt-[30px] md:mt-0 z-0 relative bg-[rgba(0,0,0,0.8)] blurr-border rounded-lg px-3 md:px-0 flex flex-col justify-center items-center space-y-6 mx-auto w-full md:w-[575px] overflow-hidden'>
                 <ul
                     className={`${spaceMono.className} flex flex-row flex-wrap justify-center items-center w-full`}
                 >
@@ -92,7 +92,7 @@ export const JoinWaitlist = () => {
                         return (
                             <li
                                 key={index}
-                                className='my1 mr-2 p-1 px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,1)] hover:text-[rgba(0,0,0,0.7)] cursor-default'
+                                className='my1 mr-2 p-1 px-[20px] font-bold tracking-wider text-[12px] border rounded-full bg-[rgba(25,25,25,1)] border-[rgba(255,255,255,0.12)] cursor-default'
                             >
                                 {tag.title}
                             </li>
@@ -131,7 +131,7 @@ export const JoinWaitlist = () => {
                 </form>
                 <div className='flex flex-row justify-start items-center space-x-2'>
                     <div className='bg-green-400 rounded-full w-[8px] h-[8px]'></div>
-                    <span className='text-white text-[12px]'>
+                    <span className='text-white text-[14px]'>
                         {count} people already signed up
                     </span>
                 </div>
