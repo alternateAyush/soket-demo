@@ -143,7 +143,7 @@ const HighLights = () => {
                     {highlightList.map((item, index) => {
                         return (
                             <div
-                                className={`${(current==index+1)? 'w-full bg-black':'w-1/3 bg-[rgba(217,217,217,1)]'} scroll-indicator h-full`}
+                                className={`${(current==index+1)? 'w-full bg-black':'w-1/3 bg-[rgba(217,217,217,1)]'} scroll-indicator h-full rounded-sm`}
                                 key={index}
                             ></div>
                         );

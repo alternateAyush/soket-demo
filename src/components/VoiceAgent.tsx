@@ -1,5 +1,6 @@
 import React from "react";
 import AudioSphere from "./AudioSphere";
+import RealTimeAudioSphere from "@/components/RealTimeAudioSphere";
 import { Vector3 } from "three";
 type VoiceAgentProps = {
     styles?: string;
@@ -16,6 +17,12 @@ const VoiceAgent = ({ styles }: VoiceAgentProps) => {
                 size={[1.8, 6]}
                 height='350px'
             />
+            {/* <RealTimeAudioSphere
+                styles='w-full text-white'
+                position={position}
+                size={[1.8, 10]}
+                height='350px'
+            /> */}
         </div>
     );
 };
