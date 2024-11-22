@@ -25,7 +25,7 @@ const Reviews = () => {
             id={sectionName}
             className='cabinet-grotesk-medium pt-[70px] md:pt-[100px] mt-[-20px] relative rounded-t-3xl text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
         >
-            <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
+            <div className='flex flex-col justify-start items-start space-y-[30px] px-[20px] md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
                     className={`${spaceMono.className} uppercase text-[14px] text-nowrap`}
                 >
@@ -36,7 +36,7 @@ const Reviews = () => {
                     {sectionTitle}
                 </h2>
             </div>
-            <div className='cabinet-grotesk-medium mt-[50px] p-[10px] md:p-[30px] bg-[rgba(24,25,31,1)] w-[95%] mx-auto md:w-[1150px] flex flex-col md:flex-row justify-between items-center md:space-y-0 rounded-xl border border-[rgba(255,255,255,0.1)]'>
+            <div className='cabinet-grotesk-medium mt-[50px] p-[10px] md:p-[30px] bg-[rgba(24,25,31,1)] mx-[20px] md:mx-auto md:w-[1150px] flex flex-col md:flex-row justify-between items-center md:space-y-0 rounded-xl border border-[rgba(255,255,255,0.1)]'>
                 <div className='w-full md:w-[45%] flex flex-col justify-between items-start space-y-10 bg-[rgba(18,20,24,1)] rounded-xl border border-[rgba(255,255,255,0.1)] overflow-hidden'>
                     <div className='flex flex-col justify-start items-start w-full pt-[30px] px-[40px]'>
                         <h3 className='text-gradient text-[3rem] cabinet-grotesk'>{`200 +`}</h3>
