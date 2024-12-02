@@ -39,7 +39,7 @@ const Features = () => {
     return (
         <section
             id={sectionName}
-            className='cabinet-grotesk-medium pt-[70px] md:pt-[100px] mt-[-20px] relative rounded-t-3xl text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
+            className='cabinet-grotesk-medium pt-[70px] md:pt-[100px] mt-[-20px] relative rounded-t-[22px] text-white z-0 bg-black w-[100vw] h-auto min-h-[100vh] overflow-hidden'
         >
             <div className='px-[20px] md:px-0 flex flex-col justify-start items-start space-y-[30px] w-full md:w-[1150px] mx-auto'>
                 <span

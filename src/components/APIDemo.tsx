@@ -30,7 +30,7 @@ const inputPlaceholder = "Enter the text you want to translate......";
 
 const APIDemo = () => {
     return (
-        <section id='apiDemo' className='pt-[70px] md:pt-[100px] pb-[120px] mt-[-20px] relative rounded-t-3xl text-black z-0 bg-white w-[100vw] h-auto min-h-[100vh] cabinet-grotesk-medium overflow-hidden'>
+        <section id='apiDemo' className='pt-[70px] md:pt-[100px] pb-[120px] mt-[-20px] relative rounded-t-[22px] text-black z-0 bg-white w-[100vw] h-auto min-h-[100vh] cabinet-grotesk-medium overflow-hidden'>
             <div className='flex flex-col justify-start items-start space-y-[30px] px-3 md:px-0 w-full md:w-[1150px] mx-auto'>
                 <span
                     className={`${spaceMono.className} uppercase text-black text-[14px] text-nowrap`}

@@ -22,7 +22,7 @@ const tagList = [
 const titleTextMobile = "Soket AI Labs' S2S API";
 const titleText =
     "Real-Time Conversations with Soket AI Labs' Speech-to-Speech API";
-const subtitleText = "Real-time conversation Agent";
+const subtitleText = "Real-time conversation agent";
 const titleAbout =
     "Our cutting-edge Speech-to-Speech API is designed to transform how businesses interact, break language barriers, automate workflows, and enable real-time multilingual communication.";
 

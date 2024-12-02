@@ -44,7 +44,7 @@ const Waitlist = () => {
     return (
         <section
             id={sectionName}
-            className='pt-[130px] md:pt-[130px] md:pb-0 mt-[-20px] relative rounded-t-3xl text-black bg-white z-0 w-[100vw] h-auto overflow-hidden'
+            className='pt-[130px] md:pt-[130px] md:pb-0 mt-[-20px] relative rounded-t-[22px] text-black bg-white z-0 w-[100vw] h-auto overflow-hidden'
         >
             <div className='px-[20px] md:px-0  cabinet-grotesk-medium mb-[50px] w-full md:w-[1150px] mx-auto'>
                 <div className='w-full mx-auto md:w-[60%] flex flex-col justify-start items-center space-y-[30px]'>

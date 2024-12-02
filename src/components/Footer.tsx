@@ -14,9 +14,10 @@ const linkList = [
 ];
 const infoList = [
     { title: "Features", url: "/home#features" },
-    { title: "Demos", url: "/demo/s2s" },
-    { title: "Industries", url: "/home#industries" },
-    { title: "Workflows", url: "/home#footer" },
+    { title: "Demo", url: "/demo/s2s" },
+    { title: "Usecases", url: "/home#usecases" },
+    { title: "Testimonials", url: "/home#testimonials" },
+    { title: "Documentation", url: "/" },
 ];
 const soketLabList = [
     { title: "About", url: "/home#about" },
@@ -48,7 +49,7 @@ const Footer = () => {
     return (
         <footer
             id={sectionName}
-            className='cabinet-grotesk-medium pt-[70px] md:pt-[100px] mt-[-20px] relative rounded-t-3xl text-white z-0 bg-black w-[100vw] h-auto overflow-hidden'
+            className='cabinet-grotesk-medium pt-[70px] md:pt-[100px] mt-[-20px] relative rounded-t-[22px] text-white z-0 bg-black w-[100vw] h-auto overflow-hidden'
         >
             <div className='px-[20px] md:px-0 mx-auto w-full md:w-[1150px] flex flex-col md:flex-row justify-between items-center space-y-[50px] md:space-y-0 md:items-start'>
                 <div className='w-[120px]'>
