@@ -1,4 +1,4 @@
-import { RealtimeEventHandler } from "../../node_modules/@openai/realtime-api-beta/lib/event_handler.js";
+import { CustomRealtimeEventHandler as RealtimeEventHandler } from "./custom_event_handler.js";
 import { RealtimeUtils } from "@openai/realtime-api-beta";
 
 export class CustomRealtimeAPI extends RealtimeEventHandler {
