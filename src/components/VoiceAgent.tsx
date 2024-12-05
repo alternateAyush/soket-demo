@@ -11,18 +11,18 @@ const VoiceAgent = ({ styles }: VoiceAgentProps) => {
 
     return (
         <div className={`${styles}`}>
-            <AudioSphere
+            {/* <AudioSphere
                 styles='w-full text-white'
                 position={position}
                 size={[1.8, 6]}
                 height='350px'
-            />
-            {/* <RealTimeAudioSphere
+            /> */}
+            <RealTimeAudioSphere
                 styles='w-full text-white'
                 position={position}
                 size={[1.8, 10]}
                 height='350px'
-            /> */}
+            />
         </div>
     );
 };

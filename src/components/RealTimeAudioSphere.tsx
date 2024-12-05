@@ -8,6 +8,9 @@ import { Space_Mono } from "next/font/google";
 
 //------------------------------------------------
 const apiUrl: string = process.env.NEXT_PUBLIC_API_WSS || "";
+const apiKey: string = process.env.NEXT_PUBLIC_API_KEY || "";
+const LOCAL_RELAY_SERVER_URL: string =
+  process.env.NEXT_PUBLIC_RELAY_SERVER_URL || '';
 
 import { RealtimeClient } from "@openai/realtime-api-beta";
 import { WavRecorder, WavStreamPlayer } from "../lib/wavtools/index.js";
@@ -244,7 +247,7 @@ function RealTimeAudioSphere({
         new WavStreamPlayer({ sampleRate: 8000 })
     );
     const clientRef = useRef<RealtimeClient>(
-        new RealtimeClient({ url: apiUrl, apiKey: "" })
+        new RealtimeClient({ url: LOCAL_RELAY_SERVER_URL})
     );
     const clientActiveRef = useRef<Boolean>(false);
     const serverCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -539,7 +542,7 @@ function RealTimeAudioSphere({
                         isRecording
                             ? `text-black bg-white border-black`
                             : `text-white bg-black border-white`
-                    } py-2 px-[20px] capitalize text-[16px] border border-white rounded-md select-none`}
+                    } py-2 px-[20px] capitalize text-[16px] border border-white rounded-md select-none disabled:text-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed`}
                     disabled={!isConnected || !canPushToTalk}
                     onMouseDown={startRecording}
                     onMouseUp={stopRecording}

@@ -534,7 +534,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                         isRecording
                             ? `text-black bg-white border-black`
                             : `text-white bg-black border-white`
-                    } py-2 px-[20px] capitalize text-[16px] border border-white rounded-md select-none`}
+                    } py-2 px-[20px] capitalize text-[16px] border border-white rounded-md select-none disabled:border-gray-800 disabled:text-gray-800 disabled:cursor-not-allowed`}
                     disabled={!isConnected || !canPushToTalk}
                     onMouseDown={startRecording}
                     onMouseUp={stopRecording}
