@@ -12,7 +12,8 @@ const apiKey: string = process.env.NEXT_PUBLIC_API_KEY || "";
 const LOCAL_RELAY_SERVER_URL: string =
   process.env.NEXT_PUBLIC_RELAY_SERVER_URL || '';
 
-import { RealtimeClient } from "@openai/realtime-api-beta";
+// import { RealtimeClient } from "@openai/realtime-api-beta";
+import {CustomRealtimeClient as RealtimeClient} from "../custom/custom_client.js";
 import { WavRecorder, WavStreamPlayer } from "../lib/wavtools/index.js";
 import { instructions } from "../utils/conversation_config";
 import { WavRenderer } from "@/utils/wav_renderer";
