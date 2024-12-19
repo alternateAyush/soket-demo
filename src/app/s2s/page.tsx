@@ -12,7 +12,7 @@ const AgentPage = () => {
                 <WebCamComponent />
             </div>
             <div className='w-[50%] h-full bg-black'>
-                <RealTimeAgent position={position} size={[2.5, 15]} />
+                <RealTimeAgent position={position} size={[1.8, 10]} />
             </div>
         </div>
     );

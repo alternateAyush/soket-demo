@@ -8,12 +8,15 @@ import { Space_Mono } from "next/font/google";
 
 //------------------------------------------------
 const apiUrl: string = process.env.NEXT_PUBLIC_API_WSS || "";
+const apiKey: string = process.env.NEXT_PUBLIC_API_KEY || "";
+const LOCAL_RELAY_SERVER_URL: string =
+  process.env.NEXT_PUBLIC_RELAY_SERVER_URL || '';
 
-import { RealtimeClient } from "@openai/realtime-api-beta";
+// import { RealtimeClient } from "@openai/realtime-api-beta";
+import {CustomRealtimeClient as RealtimeClient} from "../custom/custom_client.js";
 import { WavRecorder, WavStreamPlayer } from "../lib/wavtools/index.js";
 import { instructions } from "../utils/conversation_config";
 import { WavRenderer } from "@/utils/wav_renderer";
-import { MdEdit, MdSave } from "react-icons/md";
 //------------------------------------------------
 
 const spaceMono = Space_Mono({
@@ -37,7 +40,12 @@ interface RealtimeEvent {
     event: { [key: string]: any };
 }
 
-function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
+function RealTimeAgent({
+    styles,
+    position,
+    size,
+    height,
+}: AudioSphereProps) {
     const vertexShader = `
     uniform float u_time;
     vec3 mod289(vec3 x)
@@ -240,7 +248,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
         new WavStreamPlayer({ sampleRate: 8000 })
     );
     const clientRef = useRef<RealtimeClient>(
-        new RealtimeClient({ url: apiUrl, apiKey: "" })
+        new RealtimeClient({ url: LOCAL_RELAY_SERVER_URL})
     );
     const clientActiveRef = useRef<Boolean>(false);
     const serverCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -249,8 +257,6 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
 
     const [canPushToTalk, setCanPushToTalk] = useState(true);
     const [isRecording, setIsRecording] = useState(false);
-    const [customInstructions, setCustomInstructions] = useState(instructions);
-    const [edit, setEdit] = useState(false);
 
     /**
      * Connect to conversation:
@@ -276,6 +282,8 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
 
             // Connect to audio output
             await wavStreamPlayer.connect();
+
+            // Connect to realtime API
             await client.connect();
             client.sendUserMessageContent([
                 {
@@ -342,9 +350,9 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                 const { trackId, offset } = trackSampleOffset;
                 await client.cancelResponse(trackId, offset);
             }
-            await wavRecorder.record((data) => {
-                client.appendInputAudio(data.mono);
-            });
+            await wavRecorder.record((data) =>
+                client.appendInputAudio(data.mono)
+            );
         } catch (error) {
             console.log("startRecording function error", error);
         }
@@ -416,14 +424,17 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                 let sum = 0;
                 for (let i = 0; i < dataArray.length; i++) {
                     sum += Math.abs(dataArray[i]);
+                    // console.log(Math.abs(dataArray[i]));
                 }
                 const average = sum / dataArray.length;
                 if (average != 0) {
+                    console.log("hi");
                     movingAverageRef.current = Math.abs(average - 0.05) / 5;
                 } else {
                     movingAverageRef.current = average;
                 }
             }
+            console.log(movingAverageRef.current);
             window.requestAnimationFrame(render);
         };
         render();
@@ -438,7 +449,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
         const client = clientRef.current;
 
         // Set instructions
-        client.updateSession({ instructions: customInstructions });
+        client.updateSession({ instructions: instructions });
         // Set transcription, otherwise we don't get user transcriptions back
         client.updateSession({
             input_audio_transcription: { model: "whisper-1" },
@@ -485,24 +496,17 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
             client.reset();
         };
     }, []);
-    const updateInstructions = async () => {
-        try {
-            console.log(customInstructions);
-            const client = clientRef.current;
-            await client.updateSession({ instructions: customInstructions });
-        } catch (e) {
-            console.log("updateInstruction Error ",e);
-        }
-    };
     return (
         <div
-            className={`${
-                audioStateRef.current !== "none"
-                    ? "agent-canvas-container-listening"
-                    : ""
-            } agent-canvas-container flex flex-col justify-center items-center space-y-4 h-full w-full p-[20px]`}
+            className={`flex flex-col justify-center items-center space-y-4 h-full`}
         >
-            <div className={`w-full h-[400px]`}>
+            <div
+                className={`agent-canvas-container ${
+                    audioStateRef.current !== "none"
+                        ? "agent-canvas-container-listening"
+                        : ""
+                } relative h-full w-full`}
+            >
                 <Canvas>
                     <Scene />
                     <EffectComposer>
@@ -514,7 +518,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                     </EffectComposer>
                 </Canvas>
             </div>
-            <div className='w-full md:w-1/2 flex flex-col justify-start items-stretch p-2 space-y-4'>
+            <div className='absolute z-10 bottom-2 space-x-4 flex flex-col md:flex-row justify-start items-stretch md:justify-evenly md:items-center p-2 space-y-4 md:space-y-0'>
                 <button
                     onClick={
                         isConnected
@@ -534,7 +538,7 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                         isRecording
                             ? `text-black bg-white border-black`
                             : `text-white bg-black border-white`
-                    } py-2 px-[20px] capitalize text-[16px] border border-white rounded-md select-none disabled:border-gray-800 disabled:text-gray-800 disabled:cursor-not-allowed`}
+                    } py-2 px-[20px] capitalize text-[16px] border border-white rounded-md select-none disabled:text-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed`}
                     disabled={!isConnected || !canPushToTalk}
                     onMouseDown={startRecording}
                     onMouseUp={stopRecording}
@@ -543,28 +547,6 @@ function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
                 >
                     {isRecording ? "release to send" : "push to talk"}
                 </button>
-            </div>
-            <div className='z-10 absolute top-0 right-1 w-full h-auto flex flex-col justify-start items-end space-y-3'>
-                <button
-                    onClick={() => {
-                        setEdit(!edit);
-                        if (edit) {
-                            updateInstructions();
-                        }
-                    }}
-                    className='h-[40px] w-[40px] rounded-full bg-black text-[rgba(255,255,255,0.6)] flex justify-center items-center overflow-hidden select-none hover:text-white hover:bg-[rgba(255,255,255,0.1)]'
-                >
-                    {edit ? <MdSave /> : <MdEdit />}
-                </button>
-                <textarea
-                    value={customInstructions}
-                    onChange={(e) => {
-                        setCustomInstructions(e.target.value);
-                    }}
-                    className={`${
-                        edit ? "" : "hidden"
-                    } h-[300px] w-[90%] p-2 bg-[rgba(0,0,0,0.8)] text-white border border-white`}
-                ></textarea>
             </div>
         </div>
     );
