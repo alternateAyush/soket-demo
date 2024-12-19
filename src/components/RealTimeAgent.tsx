@@ -428,13 +428,11 @@ function RealTimeAgent({
                 }
                 const average = sum / dataArray.length;
                 if (average != 0) {
-                    console.log("hi");
                     movingAverageRef.current = Math.abs(average - 0.05) / 5;
                 } else {
                     movingAverageRef.current = average;
                 }
             }
-            console.log(movingAverageRef.current);
             window.requestAnimationFrame(render);
         };
         render();
