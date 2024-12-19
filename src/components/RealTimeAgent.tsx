@@ -5,15 +5,16 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Vector2, Vector3, Mesh, ShaderMaterial } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { Space_Mono } from "next/font/google";
+import { MdModeEdit } from "react-icons/md";
 
 //------------------------------------------------
 const apiUrl: string = process.env.NEXT_PUBLIC_API_WSS || "";
 const apiKey: string = process.env.NEXT_PUBLIC_API_KEY || "";
 const LOCAL_RELAY_SERVER_URL: string =
-  process.env.NEXT_PUBLIC_RELAY_SERVER_URL || '';
+    process.env.NEXT_PUBLIC_RELAY_SERVER_URL || "";
 
 // import { RealtimeClient } from "@openai/realtime-api-beta";
-import {CustomRealtimeClient as RealtimeClient} from "../custom/custom_client.js";
+import { CustomRealtimeClient as RealtimeClient } from "../custom/custom_client.js";
 import { WavRecorder, WavStreamPlayer } from "../lib/wavtools/index.js";
 import { instructions } from "../utils/conversation_config";
 import { WavRenderer } from "@/utils/wav_renderer";
@@ -40,12 +41,7 @@ interface RealtimeEvent {
     event: { [key: string]: any };
 }
 
-function RealTimeAgent({
-    styles,
-    position,
-    size,
-    height,
-}: AudioSphereProps) {
+function RealTimeAgent({ styles, position, size, height }: AudioSphereProps) {
     const vertexShader = `
     uniform float u_time;
     vec3 mod289(vec3 x)
@@ -248,7 +244,7 @@ function RealTimeAgent({
         new WavStreamPlayer({ sampleRate: 8000 })
     );
     const clientRef = useRef<RealtimeClient>(
-        new RealtimeClient({ url: LOCAL_RELAY_SERVER_URL})
+        new RealtimeClient({ url: LOCAL_RELAY_SERVER_URL })
     );
     const clientActiveRef = useRef<Boolean>(false);
     const serverCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -441,13 +437,15 @@ function RealTimeAgent({
         };
     }, []);
 
+    const [customInstruction, setCustomInstruction] = useState(instructions);
+
     useEffect(() => {
         // Get refs
         const wavStreamPlayer = wavStreamPlayerRef.current;
         const client = clientRef.current;
 
         // Set instructions
-        client.updateSession({ instructions: instructions });
+        client.updateSession({ instructions: customInstruction });
         // Set transcription, otherwise we don't get user transcriptions back
         client.updateSession({
             input_audio_transcription: { model: "whisper-1" },
@@ -494,10 +492,54 @@ function RealTimeAgent({
             client.reset();
         };
     }, []);
+
+    const [edit, setEdit] = useState(false);
+
+    const handleSaveInstruction = () => {
+        const client = clientRef.current;
+        // Set instructions
+        client.updateSession({ instructions: customInstruction });
+        setEdit(false);
+        return;
+    };
+
     return (
         <div
-            className={`flex flex-col justify-center items-center space-y-4 h-full`}
+            className={`relative flex flex-col justify-center items-center space-y-4 h-full`}
         >
+            <div className='absolute z-20 top-2 right-2'>
+                <div className='flex flex-row justify-start items-start space-x-3'>
+                    <div
+                        className={`${
+                            edit ? "flex" : "hidden"
+                        } flex-col justify-start items-start space-y-3`}
+                    >
+                        
+                        <textarea
+                            rows={10}
+                            value={customInstruction}
+                            onChange={(e) =>
+                                setCustomInstruction(e.target.value)
+                            }
+                            className='w-[400px] overflow-y-auto p-2 rounded-md'
+                        ></textarea>
+                        <button
+                            onClick={handleSaveInstruction}
+                            disabled={isConnected}
+                            className="bg-white text-black w-auto mx-auto px-[20px] py-[10px] rounded-md"
+                        >
+                         {isConnected? 'Disconnect first':'Save'}
+                        </button>
+                        
+                    </div>
+                    <button
+                        className='bg-white text-black opacity-70 hover:opacity-100 rounded-lg p-1'
+                        onClick={() => setEdit(!edit)}
+                    >
+                        <MdModeEdit size={20} />
+                    </button>
+                </div>
+            </div>
             <div
                 className={`agent-canvas-container ${
                     audioStateRef.current !== "none"
